@@ -17,11 +17,11 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:hint=" Contraseña"/>
+        android:layout_width="199dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:hint="Password" />
 
     <Button
         android:id="@+id/aceptLogin"
