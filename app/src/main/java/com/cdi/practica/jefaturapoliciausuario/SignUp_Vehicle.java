@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.cdi.practica.jefaturapoliciausuario.Objects.User;
 import com.cdi.practica.jefaturapoliciausuario.Objects.Vehicle;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,31 +23,18 @@ public class SignUp_Vehicle extends AppCompatActivity {
     private Button aceptButton;
     private Spinner tipo;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference usersRef, infoRef, vehRef, propRef;
+    private DatabaseReference usersRef;
     private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_vehicle);
-
         init();
         buttons();
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                user = firebaseAuth.getCurrentUser();
-                if(user!=null){
-                    //iniciado sesion
-                }else{
-                    //sesion cerrada
-                }
-            }
-        };
-
     }
 
+    /**Inicializacion de variables**/
     private void init(){
         // EditText
         matricula = (EditText) findViewById(R.id.matricula);
@@ -65,7 +50,20 @@ public class SignUp_Vehicle extends AppCompatActivity {
         // Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         usersRef = database.getReference("users");
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                user = firebaseAuth.getCurrentUser();
+                if(user!=null){
+                    //iniciado sesion
+                }else{
+                    //sesion cerrada
+                }
+            }
+        };
     }
+
+    /**Acciones de botones**/
     private void buttons(){
         aceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,15 +76,28 @@ public class SignUp_Vehicle extends AppCompatActivity {
 
                 if(!matriculaS.equals("") && !modeloS.equals("") && !seguroS.equals("") && !itvS.equals("")){
                     addVehicleDB();
-                    startActivity(new Intent(SignUp_Vehicle.this, SignUp.class));
+                    Intent i = new Intent(SignUp_Vehicle.this, SignUp.class);
+                    i.putExtra("data",true);
+                    i.putExtra("name",getIntent().getExtras().getString("name"));
+                    i.putExtra("last",getIntent().getExtras().getString("last"));
+                    i.putExtra("dni",getIntent().getExtras().getString("dni"));
+                    i.putExtra("phone",getIntent().getExtras().getString("phone"));
+                    i.putExtra("email",getIntent().getExtras().getString("email"));
+                    i.putExtra("pass",getIntent().getExtras().getString("pass"));
+                    i.putExtra("numV",String.valueOf(Integer.parseInt(getIntent().getExtras().getString("numV"))+1));
+                    i.putExtra("numP",getIntent().getExtras().getString("numP"));
+
+                    startActivity(i);
                 }else
                     Toast.makeText(getApplicationContext(),"Debes rellenar todos los campos",Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    /**Meter datos en la BBDD**/
     private void addVehicleDB(){
         Vehicle v = new Vehicle(tipoS,matriculaS,modeloS,seguroS,itvS);
-        usersRef.child(user.getUid()).child("vehicle").setValue(v);
+        usersRef.child(user.getUid()).child("vehicles").child(matriculaS).setValue(v);
     }
 
     @Override

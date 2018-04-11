@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private TextView signUp;
-    private Button aceptLogin;
+    private Button buttonLogin;
     private EditText email, pass;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -27,18 +26,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         init();
         buttons();
+    }
 
+    /**Inicializacion de variables**/
+    private void init() {
+        // EditText
+        email = (EditText) findViewById(R.id.email);
+        pass = (EditText) findViewById(R.id.password);
+        // TextView
+        signUp = (TextView) findViewById(R.id.signup);
+        // Buttons
+        buttonLogin = (Button) findViewById(R.id.aceptLogin);
+        // Firebase
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if(user!=null){
                     //iniciado sesion
-                    //Menu Activity
-
+                    startActivity(new Intent(MainActivity.this,MainMenu.class));
                 }else{
                     //sesion cerrada
                 }
@@ -46,18 +54,10 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    private void init(){
-        // EditText
-        email = (EditText) findViewById(R.id.email);
-        pass = (EditText) findViewById(R.id.password);
-        // TextView
-        signUp = (TextView) findViewById(R.id.signup);
-        // Buttons
-        aceptLogin = (Button) findViewById(R.id.aceptLogin);
-    }
-
-    private void buttons(){
-        aceptLogin.setOnClickListener(new View.OnClickListener() {
+    /**Acciones de botones**/
+    private void buttons() {
+        // Boton aceptar
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String emailS = email.getText().toString();
@@ -68,25 +68,29 @@ public class MainActivity extends AppCompatActivity {
                     signIn(emailS,passS);
             }
         });
+        // Boton registrarse
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, SignUp.class));
+                Intent i = new Intent(MainActivity.this, SignUp.class);
+                i.putExtra("data",false);
+                startActivity(i);
             }
         });
     }
 
-    private void signIn(String email, String pass){
+    /**Login**/
+    private void signIn(String email, String pass) {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(),"Sesion Iniciada",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Sesion iniciada",Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getApplicationContext(),"No se ha podido iniciar sesion",Toast.LENGTH_SHORT).show();
                 }
             }
-        });;
+        });
     }
 
     @Override

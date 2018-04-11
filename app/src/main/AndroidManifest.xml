@@ -16,12 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUp"
-            android:label="Registro"/>
-        <activity android:name=".SignUp_Vehicle"
-            android:label="Registrar Vehiculo"/>
-        <activity android:name=".SignUp_Propertie"
-            android:label="Registrar Propiedad"></activity>
+        <activity
+            android:name=".SignUp"
+            android:label="Registro" />
+        <activity
+            android:name=".SignUp_Vehicle"
+            android:label="Registrar Vehiculo" />
+        <activity
+            android:name=".SignUp_Propertie"
+            android:label="Registrar Propiedad" />
+        <activity android:name=".MainMenu"></activity>
     </application>
 
 </manifest>

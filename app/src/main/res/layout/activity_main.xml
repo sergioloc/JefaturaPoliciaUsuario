@@ -23,16 +23,6 @@
         android:layout_centerVertical="true"
         android:hint=" Contraseña"/>
 
-    <CheckBox
-        android:id="@+id/auto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/password"
-        android:layout_alignStart="@+id/password"
-        android:layout_below="@+id/password"
-        android:layout_marginTop="30dp"
-        android:text="Entrar automaticamente" />
-
     <Button
         android:id="@+id/aceptLogin"
         android:layout_width="100dp"
