@@ -25,7 +25,8 @@
         <activity
             android:name=".SignUp_Propertie"
             android:label="Registrar Propiedad" />
-        <activity android:name=".MainMenu"></activity>
+        <activity android:name=".MainMenu" />
+        <activity android:name=".PredenunciaActivity"></activity>
     </application>
 
 </manifest>

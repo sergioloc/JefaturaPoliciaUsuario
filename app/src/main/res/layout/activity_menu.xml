@@ -1,46 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.cdi.practica.jefaturapoliciausuario.MainMenu">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Predenuncia"
-        android:backgroundTint="@color/colorAccent"
-        android:textColor="@color/colorPrimaryText"
-        tools:layout_editor_absoluteX="133dp"
-        tools:layout_editor_absoluteY="103dp" />
+    <ImageButton
+        android:id="@+id/predenuncia"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/gestion"
+        android:layout_marginBottom="75dp"
+         />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
-        android:text="Gestión"
-        android:textColor="@color/colorPrimaryText"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="209dp" />
+    <ImageButton
+        android:id="@+id/gestion"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+         />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
-        android:text="Emergencia"
+    <ImageButton
+        android:id="@+id/emergencia"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/colorPrimaryText"
-        tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="309dp" />
+        android:layout_below="@+id/gestion"
+        android:layout_marginTop="75dp"
+        />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:text="JEFATURA DE POLICIA"
         tools:layout_editor_absoluteX="121dp"
         tools:layout_editor_absoluteY="476dp" />
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

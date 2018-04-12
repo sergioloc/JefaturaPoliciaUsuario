@@ -6,17 +6,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenu extends AppCompatActivity {
+
+    private ImageButton predenuncia, gestion, emergencia;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-
+        predenuncia= (ImageButton) findViewById(R.id.predenuncia);
+        gestion= (ImageButton) findViewById(R.id.gestion);
+        emergencia= (ImageButton) findViewById(R.id.emergencia);
+        buttons();
     }
 
 
@@ -38,5 +46,15 @@ public class MainMenu extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void buttons(){
+        //boton predenuncia
+        predenuncia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainMenu.this, PredenunciaActivity.class));
+            }
+        });
     }
 }
