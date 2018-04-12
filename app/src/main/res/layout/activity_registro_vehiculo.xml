@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cdi.practica.jefaturapoliciausuario.SignUp_Vehicle">
+    tools:context="com.cdi.practica.jefaturapoliciausuario.Registro_Vehiculo">
 
     <Spinner
         android:id="@+id/tipo"
@@ -46,7 +46,7 @@
         android:hint="Última ITV"/>
 
     <Button
-        android:id="@+id/aceptSignUpVehicle"
+        android:id="@+id/aceptarVehiculo"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"

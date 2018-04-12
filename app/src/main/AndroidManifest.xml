@@ -17,13 +17,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUp"
+            android:name=".Registro"
             android:label="Registro" />
         <activity
-            android:name=".SignUp_Vehicle"
+            android:name=".Registro_Vehiculo"
             android:label="Registrar Vehiculo" />
         <activity
-            android:name=".SignUp_Propertie"
+            android:name=".Registro_Propiedad"
             android:label="Registrar Propiedad" />
         <activity android:name=".MainMenu" />
         <activity android:name=".PredenunciaActivity"></activity>

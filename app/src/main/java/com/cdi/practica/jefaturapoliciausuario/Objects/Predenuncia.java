@@ -5,49 +5,49 @@ package com.cdi.practica.jefaturapoliciausuario.Objects;
  */
 
 public class Predenuncia {
-    private String fact;
-    private String name;
-    private String lastName;
-    private String ubication;
+    private String tipo;
+    private String nombre;
+    private String apellidos;
+    private String ubicacion;
     private String dni;
 
     public Predenuncia(){}
 
-    public Predenuncia(String fact, String name, String lastName, String dni, String ubication) {
-        this.fact = fact;
-        this.name = name;
-        this.lastName = lastName;
-        this.ubication = ubication;
+    public Predenuncia(String tipo, String nombre, String apellidos, String dni, String ubicacion) {
+        this.tipo = tipo;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.ubicacion = ubicacion;
         this.dni = dni;
     }
 
-    public String getFact() {
-        return fact;
+    public String getTipo() {
+        return tipo;
     }
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
-    public String getLastName() {
-        return lastName;
+    public String getApellidos() {
+        return apellidos;
     }
-    public String getUbication() {
-        return ubication;
+    public String getUbicacion() {
+        return ubicacion;
     }
     public String getDni() {
         return dni;
     }
 
-    public void setFact(String fact) {
-        this.fact = fact;
+    public void setTipo(String fact) {
+        this.tipo = fact;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
-    public void setUbication(String ubication) {
-        this.ubication = ubication;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
     public void setDni(String dni) {
         this.dni = dni;

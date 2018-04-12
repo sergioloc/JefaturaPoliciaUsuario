@@ -4,26 +4,24 @@ package com.cdi.practica.jefaturapoliciausuario.Objects;
  * Created by Sergio on 10/04/2018.
  */
 
-public class Vehicle {
+public class Vehiculo {
     private String tipo;
     private String matricula;
     private String modelo;
     private String seguro;
-    private String lastITV;
+    private String ultimaITV;
 
-    public Vehicle(){
-    }
+    public Vehiculo(){}
 
-    public Vehicle(String tipo, String matricula, String modelo, String seguro, String lastITV) {
+    public Vehiculo(String tipo, String matricula, String modelo, String seguro, String ultimaITV) {
         this.tipo = tipo;
         this.matricula = matricula;
         this.modelo = modelo;
         this.seguro = seguro;
-        this.lastITV = lastITV;
+        this.ultimaITV = ultimaITV;
     }
 
     // Getters and Setters
-
     public String getTipo() {
         return tipo;
     }
@@ -36,10 +34,9 @@ public class Vehicle {
     public String getSeguro() {
         return seguro;
     }
-    public String getLastITV() {
-        return lastITV;
+    public String getUltimaITV() {
+        return ultimaITV;
     }
-
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
@@ -52,8 +49,8 @@ public class Vehicle {
     public void setSeguro(String seguro) {
         this.seguro = seguro;
     }
-    public void setLastITV(String lastITV) {
-        this.lastITV = lastITV;
+    public void setUltimaITV(String ultimaITV) {
+        this.ultimaITV = ultimaITV;
     }
 
 

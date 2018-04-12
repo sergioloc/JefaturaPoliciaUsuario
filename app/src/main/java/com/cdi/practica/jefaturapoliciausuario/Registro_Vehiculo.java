@@ -10,13 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-import com.cdi.practica.jefaturapoliciausuario.Objects.Vehicle;
+import com.cdi.practica.jefaturapoliciausuario.Objects.Vehiculo;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUp_Vehicle extends AppCompatActivity {
+public class Registro_Vehiculo extends AppCompatActivity {
 
     private EditText matricula, modelo, seguro, itv;
     private String tipoS, matriculaS, modeloS, seguroS, itvS;
@@ -29,7 +29,7 @@ public class SignUp_Vehicle extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up_vehicle);
+        setContentView(R.layout.activity_registro_vehiculo);
         init();
         buttons();
     }
@@ -42,7 +42,7 @@ public class SignUp_Vehicle extends AppCompatActivity {
         seguro = (EditText) findViewById(R.id.seguro);
         itv = (EditText) findViewById(R.id.itv);
         // Button
-        aceptButton = (Button) findViewById(R.id.aceptSignUpVehicle);
+        aceptButton = (Button) findViewById(R.id.aceptarVehiculo);
         // Spinner
         tipo = (Spinner) findViewById(R.id.tipo);
         String[] letra = {"Turismo","Moto","Camión","Furgoneta"};
@@ -76,7 +76,7 @@ public class SignUp_Vehicle extends AppCompatActivity {
 
                 if(!matriculaS.equals("") && !modeloS.equals("") && !seguroS.equals("") && !itvS.equals("")){
                     addVehicleDB();
-                    Intent i = new Intent(SignUp_Vehicle.this, SignUp.class);
+                    Intent i = new Intent(Registro_Vehiculo.this, Registro.class);
                     i.putExtra("data",true);
                     i.putExtra("name",getIntent().getExtras().getString("name"));
                     i.putExtra("last",getIntent().getExtras().getString("last"));
@@ -96,7 +96,7 @@ public class SignUp_Vehicle extends AppCompatActivity {
 
     /**Meter datos en la BBDD**/
     private void addVehicleDB(){
-        Vehicle v = new Vehicle(tipoS,matriculaS,modeloS,seguroS,itvS);
+        Vehiculo v = new Vehiculo(tipoS,matriculaS,modeloS,seguroS,itvS);
         usersRef.child(user.getUid()).child("vehicles").child(matriculaS).setValue(v);
     }
 

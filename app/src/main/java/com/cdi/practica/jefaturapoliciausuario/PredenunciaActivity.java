@@ -33,13 +33,13 @@ public class PredenunciaActivity extends AppCompatActivity {
         ubi = (EditText) findViewById(R.id.ubicacion);
         dni = (EditText) findViewById(R.id.dni);
         // Spinner
-        facts = (Spinner) findViewById(R.id.fact);
+        facts = (Spinner) findViewById(R.id.tipo);
         String[] hechos = { "Hurto", "Robo", "Robo con violencia", "Agresión",
                             "Abuso", "Fraude", "Estafa", "Homicidio", "Difamación",
                             "Injuria", "Lesiones", "Acoso", "Amenazas" };
         facts.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, hechos));
         // Button
-        aceptar = (ImageButton) findViewById(R.id.aceptarpredenuncia);
+        aceptar = (ImageButton) findViewById(R.id.aceptarPredenuncia);
     }
 
     private void aceptarPredenuncia() {

@@ -6,11 +6,13 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.cdi.practica.jefaturapoliciausuario.Objects.User;
+import com.cdi.practica.jefaturapoliciausuario.Objects.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,12 +21,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUp extends AppCompatActivity {
+public class Registro extends AppCompatActivity {
 
-    private EditText name, lastName, dni, phone, email, pass, pass2;
-    private String nameS, lastNameS, dniS, phoneS, emailS, passS, pass2S;
+    private EditText nombre,apellidos,dni,telefono,nacimiento,nacionalidad,domicilio,email,pass,pass2;
+    private String nombreS,apellidosS,dniS,sexoS,telefonoS,nacimientoS,nacionalidadS,domicilioS,emailS,passS,pass2S;
     private TextView addVehicle, addPropertie, numVehicles, numProperties;
     private Button buttonSignUp;
+    private Spinner sexo;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference usersRef;
     private FirebaseUser user;
@@ -33,7 +36,7 @@ public class SignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_registro);
         init();
         buttons();
     }
@@ -41,13 +44,20 @@ public class SignUp extends AppCompatActivity {
     /**Inicializacion de variables**/
     private void init() {
         // EditText
-        name = (EditText) findViewById(R.id.name);
-        lastName = (EditText) findViewById(R.id.lastName);
+        nombre = (EditText) findViewById(R.id.nombre);
+        apellidos = (EditText) findViewById(R.id.apellidos);
         dni = (EditText) findViewById(R.id.dni);
-        phone = (EditText) findViewById(R.id.phone);
+        telefono = (EditText) findViewById(R.id.telefono);
+        nacimiento = (EditText) findViewById(R.id.nacimiento);
+        nacionalidad = (EditText) findViewById(R.id.nacionalidad);
+        domicilio = (EditText) findViewById(R.id.domicilio);
         email = (EditText) findViewById(R.id.email);
         pass = (EditText) findViewById(R.id.password);
         pass2 = (EditText) findViewById(R.id.password2);
+        //Spinner
+        sexo = (Spinner) findViewById(R.id.sexo);
+        String[] string_sexo = { "Masculino", "Femenino"};
+        sexo.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, string_sexo));
         // TextView
         addVehicle = (TextView) findViewById(R.id.addVehicle);
         addPropertie = (TextView) findViewById(R.id.addPropertie);
@@ -101,15 +111,23 @@ public class SignUp extends AppCompatActivity {
     }
     private void aceptButton() {
         // Cogemos los valores de los EditText
-        nameS = name.getText().toString();
-        lastNameS = lastName.getText().toString();
+        nombreS = nombre.getText().toString();
+        apellidosS = apellidos.getText().toString();
         dniS = dni.getText().toString();
-        phoneS = phone.getText().toString();
+        sexoS = sexo.getSelectedItem().toString();
+        telefonoS = telefono.getText().toString();
+        nacimientoS = nacimiento.getText().toString();
+        nacionalidadS = nacionalidad.getText().toString();
+        domicilioS = domicilio.getText().toString();
         emailS = email.getText().toString();
         passS = pass.getText().toString();
         pass2S = pass2.getText().toString();
 
-        if(!nameS.equals("") && !lastNameS.equals("") && !dniS.equals("") && !phoneS.equals("") && !emailS.equals("") && !passS.equals("") && !pass2S.equals("")){
+        if(!nombreS.equals("") && !apellidosS.equals("") && !dniS.equals("") && !sexoS.equals("")
+                && !telefonoS.equals("") && !emailS.equals("") && !nacimientoS.equals("")
+                && !nacionalidadS.equals("") && !domicilioS.equals("") && !passS.equals("")
+                && !pass2S.equals("")){
+
             if(passS.equals(pass2S))
                 if(pass.length()>=6){
                     if(!data){ // Si se viene de MainActivity
@@ -121,7 +139,7 @@ public class SignUp extends AppCompatActivity {
                             }
                         }, 2000);
                     }
-                    startActivity(new Intent(SignUp.this,MainMenu.class));
+                    startActivity(new Intent(Registro.this,MainMenu.class));
                 }
                 else
                     Toast.makeText(getApplicationContext(),"La contraseña debe tener al menos 6 caracteres",Toast.LENGTH_SHORT).show();
@@ -132,15 +150,23 @@ public class SignUp extends AppCompatActivity {
     }
     private void vehicleButton() {
         // Cogemos los valores de los EditText
-        nameS = name.getText().toString();
-        lastNameS = lastName.getText().toString();
+        nombreS = nombre.getText().toString();
+        apellidosS = apellidos.getText().toString();
         dniS = dni.getText().toString();
-        phoneS = phone.getText().toString();
+        sexoS = sexo.getSelectedItem().toString();
+        telefonoS = telefono.getText().toString();
+        nacimientoS = nacimiento.getText().toString();
+        nacionalidadS = nacionalidad.getText().toString();
+        domicilioS = domicilio.getText().toString();
         emailS = email.getText().toString();
         passS = pass.getText().toString();
         pass2S = pass2.getText().toString();
 
-        if(!nameS.equals("") && !lastNameS.equals("") && !dniS.equals("") && !phoneS.equals("") && !emailS.equals("") && !passS.equals("") && !pass2S.equals("")){
+        if(!nombreS.equals("") && !apellidosS.equals("") && !dniS.equals("") && !sexoS.equals("")
+                && !telefonoS.equals("") && !emailS.equals("") && !nacimientoS.equals("")
+                && !nacionalidadS.equals("") && !domicilioS.equals("") && !passS.equals("")
+                && !pass2S.equals("")){
+
             if(passS.equals(pass2S))
                 if(pass.length()>=6){
                     if(!data){ // Si se viene de MainActivity
@@ -149,25 +175,33 @@ public class SignUp extends AppCompatActivity {
                         handler.postDelayed(new Runnable() {
                             public void run() {
                                 addInfoDB();
-                                Intent i = new Intent(SignUp.this, SignUp_Vehicle.class);
-                                i.putExtra("name",nameS);
-                                i.putExtra("last",lastNameS);
+                                Intent i = new Intent(Registro.this, Registro_Vehiculo.class);
+                                i.putExtra("nombre",nombreS);
+                                i.putExtra("apellidos",apellidosS);
                                 i.putExtra("dni",dniS);
-                                i.putExtra("phone",phoneS);
+                                i.putExtra("sexo",sexoS);
+                                i.putExtra("telefono",telefonoS);
                                 i.putExtra("email",emailS);
+                                i.putExtra("nacimiento",nacimientoS);
+                                i.putExtra("nacionalidad",nacionalidadS);
+                                i.putExtra("domicilio",domicilioS);
                                 i.putExtra("pass",passS);
                                 i.putExtra("numV",numVehicles.getText().toString());
                                 i.putExtra("numP",numProperties.getText().toString());
                                 startActivity(i);
                             }
                         }, 2000);
-                    }else{ // Si se viene de SignUp_Propertie o SignUp_Vehicle
-                        Intent i = new Intent(SignUp.this, SignUp_Vehicle.class);
-                        i.putExtra("name",nameS);
-                        i.putExtra("last",lastNameS);
+                    }else{ // Si se viene de Registro_Propiedad o Registro_Vehiculo
+                        Intent i = new Intent(Registro.this, Registro_Vehiculo.class);
+                        i.putExtra("nombre",nombreS);
+                        i.putExtra("apellidos",apellidosS);
                         i.putExtra("dni",dniS);
-                        i.putExtra("phone",phoneS);
+                        i.putExtra("sexo",sexoS);
+                        i.putExtra("telefono",telefonoS);
                         i.putExtra("email",emailS);
+                        i.putExtra("nacimiento",nacimientoS);
+                        i.putExtra("nacionalidad",nacionalidadS);
+                        i.putExtra("domicilio",domicilioS);
                         i.putExtra("pass",passS);
                         i.putExtra("numV",numVehicles.getText().toString());
                         i.putExtra("numP",numProperties.getText().toString());
@@ -185,15 +219,23 @@ public class SignUp extends AppCompatActivity {
     }
     private void propertieButton() {
         // Cogemos los valores de los EditText
-        nameS = name.getText().toString();
-        lastNameS = lastName.getText().toString();
+        nombreS = nombre.getText().toString();
+        apellidosS = apellidos.getText().toString();
         dniS = dni.getText().toString();
-        phoneS = phone.getText().toString();
+        sexoS = sexo.getSelectedItem().toString();
+        telefonoS = telefono.getText().toString();
+        nacimientoS = nacimiento.getText().toString();
+        nacionalidadS = nacionalidad.getText().toString();
+        domicilioS = domicilio.getText().toString();
         emailS = email.getText().toString();
         passS = pass.getText().toString();
         pass2S = pass2.getText().toString();
 
-        if(!nameS.equals("") && !lastNameS.equals("") && !dniS.equals("") && !phoneS.equals("") && !emailS.equals("") && !passS.equals("") && !pass2S.equals("")){
+        if(!nombreS.equals("") && !apellidosS.equals("") && !dniS.equals("") && !sexoS.equals("")
+                && !telefonoS.equals("") && !emailS.equals("") && !nacimientoS.equals("")
+                && !nacionalidadS.equals("") && !domicilioS.equals("") && !passS.equals("")
+                && !pass2S.equals("")){
+
             if(passS.equals(pass2S))
                 if(pass.length()>=6){
                     if(!data){ // Si se viene de MainActivity
@@ -202,25 +244,33 @@ public class SignUp extends AppCompatActivity {
                         handler.postDelayed(new Runnable() {
                             public void run() {
                                 addInfoDB();
-                                Intent i = new Intent(SignUp.this, SignUp_Propertie.class);
-                                i.putExtra("name",nameS);
-                                i.putExtra("last",lastNameS);
+                                Intent i = new Intent(Registro.this, Registro_Propiedad.class);
+                                i.putExtra("nombre",nombreS);
+                                i.putExtra("apellidos",apellidosS);
                                 i.putExtra("dni",dniS);
-                                i.putExtra("phone",phoneS);
+                                i.putExtra("sexo",sexoS);
+                                i.putExtra("telefono",telefonoS);
                                 i.putExtra("email",emailS);
+                                i.putExtra("nacimiento",nacimientoS);
+                                i.putExtra("nacionalidad",nacionalidadS);
+                                i.putExtra("domicilio",domicilioS);
                                 i.putExtra("pass",passS);
                                 i.putExtra("numV",numVehicles.getText().toString());
                                 i.putExtra("numP",numProperties.getText().toString());
                                 startActivity(i);
                             }
                         }, 2000);
-                    }else{ // Si se viene de SignUp_Propertie o SignUp_Vehicle
-                        Intent i = new Intent(SignUp.this, SignUp_Propertie.class);
-                        i.putExtra("name",nameS);
-                        i.putExtra("last",lastNameS);
+                    }else{ // Si se viene de Registro_Propiedad o Registro_Vehiculo
+                        Intent i = new Intent(Registro.this, Registro_Propiedad.class);
+                        i.putExtra("nombre",nombreS);
+                        i.putExtra("apellidos",apellidosS);
                         i.putExtra("dni",dniS);
-                        i.putExtra("phone",phoneS);
+                        i.putExtra("sexo",sexoS);
+                        i.putExtra("telefono",telefonoS);
                         i.putExtra("email",emailS);
+                        i.putExtra("nacimiento",nacimientoS);
+                        i.putExtra("nacionalidad",nacionalidadS);
+                        i.putExtra("domicilio",domicilioS);
                         i.putExtra("pass",passS);
                         i.putExtra("numV",numVehicles.getText().toString());
                         i.putExtra("numP",numProperties.getText().toString());
@@ -251,17 +301,24 @@ public class SignUp extends AppCompatActivity {
 
     /**Meter datos en la BBDD**/
     private void addInfoDB() {
-        User u = new User(nameS,lastNameS,dniS,phoneS,emailS);
+        Usuario u = new Usuario(nombreS,apellidosS,dniS,sexoS,telefonoS,emailS,nacimientoS,nacionalidadS,domicilioS);
         usersRef.child(user.getUid()).child("info").setValue(u);
     }
 
     /**Recuperar info del usuario**/
     private void getInfo() {
-        name.setText(getIntent().getExtras().getString("name"));
-        lastName.setText(getIntent().getExtras().getString("last"));
+        nombre.setText(getIntent().getExtras().getString("name"));
+        apellidos.setText(getIntent().getExtras().getString("last"));
         dni.setText(getIntent().getExtras().getString("dni"));
-        phone.setText(getIntent().getExtras().getString("phone"));
+        if(sexoS.equals("Masculino"))
+            sexo.setSelection(1);
+        else
+            sexo.setSelection(2);
+        telefono.setText(getIntent().getExtras().getString("phone"));
         email.setText(getIntent().getExtras().getString("email"));
+        nacimiento.setText(getIntent().getExtras().getString("nacimiento"));
+        nacionalidad.setText(getIntent().getExtras().getString("nacionalidad"));
+        domicilio.setText(getIntent().getExtras().getString("domicilio"));
         pass.setText(getIntent().getExtras().getString("pass"));
         pass2.setText(getIntent().getExtras().getString("pass"));
         numVehicles.setText(getIntent().getExtras().getString("numV"));

@@ -25,18 +25,18 @@
         android:hint="Password" />
 
     <Button
-        android:id="@+id/aceptLogin"
+        android:id="@+id/botonLogin"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/signup"
+        android:layout_above="@+id/registro"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorAccent"
         android:textColor="@color/colorPrimaryText"
         android:text="Aceptar"/>
 
     <TextView
-        android:id="@+id/signup"
+        android:id="@+id/registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

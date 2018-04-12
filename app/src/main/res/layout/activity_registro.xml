@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cdi.practica.jefaturapoliciausuario.SignUp">
+    tools:context="com.cdi.practica.jefaturapoliciausuario.Registro">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:background="@android:color/black"/>
 
             <EditText
-                android:id="@+id/name"
+                android:id="@+id/nombre"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_below="@id/bar1"
@@ -40,11 +40,11 @@
                 android:hint="Nombre"/>
 
             <EditText
-                android:id="@+id/lastName"
+                android:id="@+id/apellidos"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/name"
+                android:layout_below="@+id/nombre"
                 android:layout_marginTop="10dp"
                 android:hint="Apellidos"/>
             <EditText
@@ -52,23 +52,54 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/lastName"
+                android:layout_below="@+id/apellidos"
                 android:layout_marginTop="10dp"
                 android:hint="DNI"/>
-            <EditText
-                android:id="@+id/phone"
+            <Spinner
+                android:id="@+id/sexo"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/dni"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/dni" />
+            <EditText
+                android:id="@+id/telefono"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/sexo"
                 android:layout_marginTop="10dp"
                 android:hint="Telefono"/>
+            <EditText
+                android:id="@+id/nacimiento"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/telefono"
+                android:layout_marginTop="10dp"
+                android:hint="Fecha de nacimiento"/>
+            <EditText
+                android:id="@+id/nacionalidad"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/nacimiento"
+                android:layout_marginTop="10dp"
+                android:hint="Nacionalidad"/>
+            <EditText
+                android:id="@+id/domicilio"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/nacionalidad"
+                android:layout_marginTop="10dp"
+                android:hint="Domicilio"/>
             <TextView
                 android:id="@+id/textInfoAcc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_below="@+id/phone"
+                android:layout_below="@+id/domicilio"
                 android:paddingLeft="10dp"
                 android:text="Información de la cuenta"/>
             <View
@@ -123,7 +154,7 @@
                 android:id="@+id/vehicles"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
-                android:layout_alignLeft="@+id/phone"
+                android:layout_alignLeft="@+id/telefono"
                 android:layout_below="@+id/bar3"
                 android:layout_marginTop="20dp"
                 android:background="@color/colorPrimaryLight"
@@ -157,7 +188,7 @@
                 android:id="@+id/properties"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
-                android:layout_alignLeft="@+id/phone"
+                android:layout_alignLeft="@+id/telefono"
                 android:layout_below="@+id/vehicles"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorPrimaryLight"

@@ -17,8 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView signUp;
-    private Button buttonLogin;
+    private TextView registro;
+    private Button botonLogin;
     private EditText email, pass;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.email);
         pass = (EditText) findViewById(R.id.password);
         // TextView
-        signUp = (TextView) findViewById(R.id.signup);
+        registro = (TextView) findViewById(R.id.registro);
         // Buttons
-        buttonLogin = (Button) findViewById(R.id.aceptLogin);
+        botonLogin = (Button) findViewById(R.id.botonLogin);
         // Firebase
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     /**Acciones de botones**/
     private void buttons() {
         // Boton aceptar
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        botonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String emailS = email.getText().toString();
@@ -69,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Boton registrarse
-        signUp.setOnClickListener(new View.OnClickListener() {
+        registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, SignUp.class);
+                Intent i = new Intent(MainActivity.this, Registro.class);
                 i.putExtra("data",false);
                 startActivity(i);
             }

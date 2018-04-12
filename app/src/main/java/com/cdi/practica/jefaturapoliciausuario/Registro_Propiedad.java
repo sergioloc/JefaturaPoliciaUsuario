@@ -10,13 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-import com.cdi.practica.jefaturapoliciausuario.Objects.Propertie;
+import com.cdi.practica.jefaturapoliciausuario.Objects.Propiedad;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUp_Propertie extends AppCompatActivity {
+public class Registro_Propiedad extends AppCompatActivity {
 
     private Spinner type;
     private EditText address;
@@ -28,7 +28,7 @@ public class SignUp_Propertie extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up_propertie);
+        setContentView(R.layout.activity_registro_propiedad);
         init();
         buttons();
     }
@@ -42,7 +42,7 @@ public class SignUp_Propertie extends AppCompatActivity {
         // EditText
         address = (EditText) findViewById(R.id.direccion);
         // Buttons
-        aceptButton = (Button) findViewById(R.id.aceptSignUpPropertie);
+        aceptButton = (Button) findViewById(R.id.aceptarPropiedad);
         // Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         usersRef = database.getReference("users");
@@ -68,7 +68,7 @@ public class SignUp_Propertie extends AppCompatActivity {
                 addressS = address.getText().toString();
                 if(!addressS.equals("")){
                     addPropertieDB();
-                    Intent i = new Intent(SignUp_Propertie.this, SignUp.class);
+                    Intent i = new Intent(Registro_Propiedad.this, Registro.class);
                     i.putExtra("data",true);
                     i.putExtra("name",getIntent().getExtras().getString("name"));
                     i.putExtra("last",getIntent().getExtras().getString("last"));
@@ -87,7 +87,7 @@ public class SignUp_Propertie extends AppCompatActivity {
 
     /**Meter datos en la BBDD**/
     private void addPropertieDB(){
-        Propertie p = new Propertie(typeS,addressS);
+        Propiedad p = new Propiedad(typeS,addressS);
         usersRef.child(user.getUid()).child("properties").child(typeS).setValue(p);
     }
 
