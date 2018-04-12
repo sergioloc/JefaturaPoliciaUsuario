@@ -7,6 +7,39 @@
     tools:context="com.cdi.practica.jefaturapoliciausuario.PredenunciaActivity">
 
     <EditText
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/ubicacion"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nombre" />
+
+    <ImageButton
+        android:id="@+id/aceptarpredenuncia"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/dni"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="75dp"
+        />
+
+    <EditText
+        android:id="@+id/dni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/nombre"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="DNI" />
+
+    <EditText
         android:id="@+id/ubicacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,10 +55,10 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="10dp"
 
         android:gravity="center"
-        android:text="HECHOS" />
+        android:text="Denuncia por" />
 
     <Spinner
         android:id="@+id/fact"

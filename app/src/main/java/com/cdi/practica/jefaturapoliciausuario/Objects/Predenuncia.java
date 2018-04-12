@@ -9,7 +9,6 @@ public class Predenuncia {
     private String ubicacion;
     private String nombre;
     private String dni;
-    private String descripcion;
 
     public Predenuncia(){}
     public Predenuncia(String fact, String ubicacion, String nombre, String dni, String descripcion) {
@@ -17,7 +16,6 @@ public class Predenuncia {
         this.ubicacion = ubicacion;
         this.nombre = nombre;
         this.dni = dni;
-        this.descripcion = descripcion;
     }
 
     public String getFact() {
@@ -32,9 +30,6 @@ public class Predenuncia {
     public String getDni() {
         return dni;
     }
-    public String getDescripcion() {
-        return descripcion;
-    }
 
     public void setFact(String fact) {
         this.fact = fact;
@@ -48,9 +43,4 @@ public class Predenuncia {
     public void setDni(String dni) {
         this.dni = dni;
     }
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-
 }
