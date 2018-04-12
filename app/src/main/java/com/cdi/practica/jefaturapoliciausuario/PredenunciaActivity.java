@@ -1,5 +1,6 @@
 package com.cdi.practica.jefaturapoliciausuario;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -66,6 +67,8 @@ public class PredenunciaActivity extends AppCompatActivity {
                 dniS = dni.getText().toString();
                 Predenuncia p = new Predenuncia(tipoS,nombreS,apellidosS,dniS,ubiS);
                 predRef.child("nueva").push().setValue(p);
+                startActivity(new Intent(PredenunciaActivity.this, MainMenu.class));
+                finish();
             }
         });
     }

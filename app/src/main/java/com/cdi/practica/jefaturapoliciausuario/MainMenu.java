@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -56,5 +57,6 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(new Intent(MainMenu.this, PredenunciaActivity.class));
             }
         });
+        Toast.makeText(getApplicationContext(),"Tu denuncia ha sido notificada",Toast.LENGTH_SHORT).show();
     }
 }
