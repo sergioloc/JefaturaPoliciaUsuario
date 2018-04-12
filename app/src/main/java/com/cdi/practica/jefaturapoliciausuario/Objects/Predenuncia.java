@@ -17,8 +17,8 @@ public class Predenuncia {
         this.tipo = tipo;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.ubicacion = ubicacion;
         this.dni = dni;
+        this.ubicacion = ubicacion;
     }
 
     public String getTipo() {
