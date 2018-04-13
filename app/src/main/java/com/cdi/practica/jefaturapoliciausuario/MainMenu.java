@@ -57,6 +57,13 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(new Intent(MainMenu.this, PredenunciaActivity.class));
             }
         });
-        Toast.makeText(getApplicationContext(),"Tu denuncia ha sido notificada",Toast.LENGTH_SHORT).show();
+
+        //boton gestion
+        gestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainMenu.this, GestionActivity.class));
+            }
+        });
     }
 }

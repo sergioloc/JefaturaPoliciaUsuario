@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.cdi.practica.jefaturapoliciausuario.Objects.Predenuncia;
 import com.cdi.practica.jefaturapoliciausuario.Objects.Usuario;
@@ -68,6 +69,7 @@ public class PredenunciaActivity extends AppCompatActivity {
                 Predenuncia p = new Predenuncia(tipoS,nombreS,apellidosS,dniS,ubiS);
                 predRef.child("nueva").push().setValue(p);
                 startActivity(new Intent(PredenunciaActivity.this, MainMenu.class));
+                Toast.makeText(getApplicationContext(),"Tu denuncia ha sido notificada",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
