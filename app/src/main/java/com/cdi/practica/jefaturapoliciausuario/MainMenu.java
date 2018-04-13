@@ -88,6 +88,11 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(new Intent(MainMenu.this, PredenunciaActivity.class));
             }
         });
+        //boton gestion
+        gestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainMenu.this, GestionActivity.class));
         emergencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
