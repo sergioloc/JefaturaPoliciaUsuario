@@ -26,7 +26,8 @@
             android:name=".Registro_Propiedad"
             android:label="Registrar Propiedad" />
         <activity android:name=".MainMenu" />
-        <activity android:name=".PredenunciaActivity"></activity>
+        <activity android:name=".PredenunciaActivity" />
+        <activity android:name=".Emergencia"></activity>
     </application>
 
 </manifest>

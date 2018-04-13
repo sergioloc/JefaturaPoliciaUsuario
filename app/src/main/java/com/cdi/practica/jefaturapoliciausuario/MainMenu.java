@@ -1,19 +1,28 @@
 package com.cdi.practica.jefaturapoliciausuario;
 
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenu extends AppCompatActivity {
 
     private ImageButton predenuncia, gestion, emergencia;
+    private Dialog dialog;
 
 
 
@@ -25,6 +34,29 @@ public class MainMenu extends AppCompatActivity {
         gestion= (ImageButton) findViewById(R.id.gestion);
         emergencia= (ImageButton) findViewById(R.id.emergencia);
         buttons();
+
+        // custom dialog
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_emergencia);
+        Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+        Button dialogButtonC = (Button) dialog.findViewById(R.id.dialogButtonCancel);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainMenu.this,Emergencia.class));
+                dialog.dismiss();
+            }
+        });
+
+        dialogButtonC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+
+
     }
 
 
@@ -54,6 +86,12 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainMenu.this, PredenunciaActivity.class));
+            }
+        });
+        emergencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
             }
         });
     }
