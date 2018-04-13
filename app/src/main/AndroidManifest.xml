@@ -27,6 +27,10 @@
             android:label="Registrar Propiedad" />
         <activity android:name=".MainMenu" />
         <activity android:name=".PredenunciaActivity" />
+        <activity
+            android:name=".GestionActivity"
+            android:label="@string/title_activity_gestion"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Emergencia"></activity>
     </application>
 
