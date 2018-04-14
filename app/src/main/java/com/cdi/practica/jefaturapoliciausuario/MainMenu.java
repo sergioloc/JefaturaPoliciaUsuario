@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.ncorti.slidetoact.SlideToActView;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -33,21 +34,23 @@ public class MainMenu extends AppCompatActivity {
         predenuncia= (ImageButton) findViewById(R.id.predenuncia);
         gestion= (ImageButton) findViewById(R.id.gestion);
         emergencia= (ImageButton) findViewById(R.id.emergencia);
+
         buttons();
+
 
         // custom dialog
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_emergencia);
-        Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
         Button dialogButtonC = (Button) dialog.findViewById(R.id.dialogButtonCancel);
-        dialogButton.setOnClickListener(new View.OnClickListener() {
+        final SlideToActView aceptar = (SlideToActView) dialog.findViewById(R.id.aceptarEmergencia);
+        aceptar.setOnSlideCompleteListener(new SlideToActView.OnSlideCompleteListener() {
             @Override
-            public void onClick(View view) {
+            public void onSlideComplete(SlideToActView slideToActView) {
                 startActivity(new Intent(MainMenu.this,Emergencia.class));
                 dialog.dismiss();
+                aceptar.resetSlider();
             }
         });
-
         dialogButtonC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,11 +96,15 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainMenu.this, GestionActivity.class));
-        emergencia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.show();
+
             }
         });
+        //boton emergencia
+        emergencia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.show();
+                    }
+                });
     }
 }
