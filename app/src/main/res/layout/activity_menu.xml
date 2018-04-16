@@ -1,48 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/fondo_menu"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.cdi.practica.jefaturapoliciausuario.MainMenu">
 
-    <ImageButton
+    <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/predenuncia"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@color/colorAccent"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/gestion"
         android:layout_marginBottom="75dp"
-         />
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="2dp"
+        fancy:fb_defaultColor="#7ab9"
+        fancy:fb_focusColor="#9bd823"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="PREDENUNCIA"
+        fancy:fb_textColor="#FFFFFF" />
 
-    <ImageButton
+    <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/gestion"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@color/colorAccent"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-         />
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="2dp"
+        fancy:fb_defaultColor="#7ab9"
+        fancy:fb_focusColor="#9bd823"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="GESTIÓN"
+        fancy:fb_textColor="#FFFFFF" />
 
-    <ImageButton
+    <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/emergencia"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="@color/colorAccent"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimaryText"
         android:layout_below="@+id/gestion"
         android:layout_marginTop="75dp"
-        />
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="2dp"
+        fancy:fb_defaultColor="#7ab9"
+        fancy:fb_focusColor="#9bd823"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="EMERGENCIA"
+        fancy:fb_textColor="#FFFFFF" />
+
+
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:text="JEFATURA DE POLICIA"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="476dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </RelativeLayout>

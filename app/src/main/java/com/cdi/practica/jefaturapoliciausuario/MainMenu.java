@@ -20,9 +20,11 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ncorti.slidetoact.SlideToActView;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 public class MainMenu extends AppCompatActivity {
 
-    private ImageButton predenuncia, gestion, emergencia;
+    private FancyButton predenuncia, gestion, emergencia;
     private Dialog dialog;
 
 
@@ -31,9 +33,9 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        predenuncia= (ImageButton) findViewById(R.id.predenuncia);
-        gestion= (ImageButton) findViewById(R.id.gestion);
-        emergencia= (ImageButton) findViewById(R.id.emergencia);
+        predenuncia= (FancyButton) findViewById(R.id.predenuncia);
+        gestion= (FancyButton) findViewById(R.id.gestion);
+        emergencia= (FancyButton) findViewById(R.id.emergencia);
 
         buttons();
 
@@ -62,6 +64,31 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainMenu.this);
+        builder.setTitle(R.string.app_name);
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setMessage("Seguro que quiere salir?")
+                .setCancelable(false)
+                .setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
 
 
     @Override

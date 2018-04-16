@@ -23,7 +23,7 @@ public class PredenunciaActivity extends AppCompatActivity {
     private EditText nombre,apellidos,ubi,dni;
     private String nombreS,apellidosS,ubiS,dniS,tipoS;
     private Spinner tipo;
-    private ImageButton aceptar;
+    private Button aceptar;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference predRef;
     private FirebaseUser user;
@@ -52,7 +52,7 @@ public class PredenunciaActivity extends AppCompatActivity {
                             "Injuria", "Lesiones", "Acoso", "Amenazas" };
         tipo.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, hechos));
         // Button
-        aceptar = (ImageButton) findViewById(R.id.aceptarPredenuncia);
+        aceptar = (Button) findViewById(R.id.aceptarPredenuncia);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         predRef = database.getReference("predenuncias");
     }

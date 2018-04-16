@@ -15,10 +15,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView registro;
-    private Button botonLogin;
+    private FancyButton botonLogin;
     private EditText email, pass;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         // TextView
         registro = (TextView) findViewById(R.id.registro);
         // Buttons
-        botonLogin = (Button) findViewById(R.id.botonLogin);
+        botonLogin = (FancyButton) findViewById(R.id.botonLogin);
         // Firebase
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override

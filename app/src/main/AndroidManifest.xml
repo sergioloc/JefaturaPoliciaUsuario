@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,20 +19,31 @@
         </activity>
         <activity
             android:name=".Registro"
-            android:label="Registro" />
+            android:label="Registro"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Registro_Vehiculo"
-            android:label="Registrar Vehiculo" />
+            android:label="Registrar Vehiculo"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Registro_Propiedad"
-            android:label="Registrar Propiedad" />
-        <activity android:name=".MainMenu" />
-        <activity android:name=".PredenunciaActivity" />
+            android:label="Registrar Propiedad"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainMenu"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PredenunciaActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".GestionActivity"
             android:label="@string/title_activity_gestion"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Emergencia"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Emergencia"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Fragments.pop"
+            android:theme="@style/AppTheme.CustomTheme"
+            android:screenOrientation="portrait"
+            ></activity>
     </application>
 
 </manifest>

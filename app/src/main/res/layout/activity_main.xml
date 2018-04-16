@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/fondo_registro_bis"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.cdi.practica.jefaturapoliciausuario.MainActivity">
@@ -24,16 +26,25 @@
         android:ems="10"
         android:hint="Password" />
 
-    <Button
+
+    <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/botonLogin"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/registro"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/colorAccent"
-        android:textColor="@color/colorPrimaryText"
-        android:text="Aceptar"/>
+        android:layout_marginBottom="30dp"
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="2dp"
+        fancy:fb_defaultColor="#7ab113"
+        fancy:fb_focusColor="#9bd823"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="ACEPTAR"
+        fancy:fb_textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/registro"
@@ -42,7 +53,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
-        android:textColor="@color/colorPrimaryText"
+        android:textColor="@color/white"
         android:text="Registrarse"
         android:textSize="15dp"/>
 
