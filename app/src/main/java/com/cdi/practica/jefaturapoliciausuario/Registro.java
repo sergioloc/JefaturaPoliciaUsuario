@@ -3,6 +3,7 @@ package com.cdi.practica.jefaturapoliciausuario;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,17 +22,20 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 public class Registro extends AppCompatActivity {
 
     private EditText nombre,apellidos,dni,telefono,nacimiento,nacionalidad,domicilio,email,pass,pass2;
     private String nombreS,apellidosS,dniS,sexoS,telefonoS,nacimientoS,nacionalidadS,domicilioS,emailS,passS,pass2S;
-    private TextView addVehicle, addPropertie, numVehicles, numProperties;
-    private Button buttonSignUp;
+    private TextView numVehicles, numProperties;
+    private FancyButton buttonSignUp;
     private Spinner sexo;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference usersRef;
     private FirebaseUser user;
     private Boolean data;
+    private FloatingActionButton addVehicle, addPropertie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +63,12 @@ public class Registro extends AppCompatActivity {
         String[] string_sexo = { "Masculino", "Femenino"};
         sexo.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, string_sexo));
         // TextView
-        addVehicle = (TextView) findViewById(R.id.addVehicle);
-        addPropertie = (TextView) findViewById(R.id.addPropertie);
+        addVehicle = (FloatingActionButton) findViewById(R.id.addVehicle);
+        addPropertie = (FloatingActionButton) findViewById(R.id.addPropertie);
         numVehicles = (TextView) findViewById(R.id.numVehicles);
         numProperties = (TextView) findViewById(R.id.numProperties);
         // Button
-        buttonSignUp = (Button) findViewById(R.id.aceptSignUp);
+        buttonSignUp = (FancyButton) findViewById(R.id.aceptSignUp);
         //Boolean
         data = getIntent().getExtras().getBoolean("data");
         // Firebase

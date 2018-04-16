@@ -15,7 +15,8 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/password"
         android:layout_marginBottom="30dp"
-        android:hint=" Email"/>
+        android:textColor="@color/colorTextIcons"
+        android:hint="Email"/>
 
     <EditText
         android:id="@+id/password"
@@ -23,8 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:inputType="textPassword"
+        android:textColor="@color/colorTextIcons"
         android:ems="10"
-        android:hint="Password" />
+        android:hint="Contraseña" />
 
 
     <mehdi.sakout.fancybuttons.FancyButton
@@ -40,7 +42,7 @@
         android:layout_marginBottom="30dp"
         fancy:fb_borderColor="#FFFFFF"
         fancy:fb_borderWidth="2dp"
-        fancy:fb_defaultColor="#7ab113"
+        fancy:fb_defaultColor="@color/colorPrimary"
         fancy:fb_focusColor="#9bd823"
         fancy:fb_radius="30dp"
         fancy:fb_text="ACEPTAR"

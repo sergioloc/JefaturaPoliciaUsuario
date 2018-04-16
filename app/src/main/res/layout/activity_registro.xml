@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo_registro_bis"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     tools:context="com.cdi.practica.jefaturapoliciausuario.Registro">
 
     <ScrollView
@@ -19,7 +21,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:paddingLeft="10dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/colorTextIcons"
                 android:text="Información personal"/>
 
             <View
@@ -27,8 +30,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_below="@+id/textInfoPers"
-                android:background="@android:color/black"/>
+                android:background="@android:color/white"/>
 
             <EditText
                 android:id="@+id/nombre"
@@ -37,6 +42,8 @@
                 android:layout_below="@id/bar1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
+                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorTextIcons"
                 android:hint="Nombre"/>
 
             <EditText
@@ -46,6 +53,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/nombre"
                 android:layout_marginTop="10dp"
+                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorTextIcons"
                 android:hint="Apellidos"/>
             <EditText
                 android:id="@+id/dni"
@@ -54,6 +63,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/apellidos"
                 android:layout_marginTop="10dp"
+                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorTextIcons"
                 android:hint="DNI"/>
             <Spinner
                 android:id="@+id/sexo"
@@ -61,6 +72,8 @@
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
+                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorTextIcons"
                 android:layout_below="@+id/dni" />
             <EditText
                 android:id="@+id/telefono"
@@ -68,6 +81,8 @@
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/sexo"
+                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorTextIcons"
                 android:layout_marginTop="10dp"
                 android:hint="Telefono"/>
             <EditText
@@ -75,7 +90,9 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
+                android:textColorHint="@color/whiteTransp"
                 android:layout_below="@+id/telefono"
+                android:textColor="@color/colorTextIcons"
                 android:layout_marginTop="10dp"
                 android:hint="Fecha de nacimiento"/>
             <EditText
@@ -84,6 +101,8 @@
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/nacimiento"
+                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorTextIcons"
                 android:layout_marginTop="10dp"
                 android:hint="Nacionalidad"/>
             <EditText
@@ -92,6 +111,8 @@
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/nacionalidad"
+                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorTextIcons"
                 android:layout_marginTop="10dp"
                 android:hint="Domicilio"/>
             <TextView
@@ -100,6 +121,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_below="@+id/domicilio"
+                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/whiteTransp"
                 android:paddingLeft="10dp"
                 android:text="Información de la cuenta"/>
             <View
@@ -107,13 +130,17 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_below="@+id/textInfoAcc"
-                android:background="@android:color/black"/>
+                android:background="@android:color/white"/>
             <EditText
                 android:id="@+id/email"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
+                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorTextIcons"
                 android:layout_below="@+id/bar2"
                 android:layout_marginTop="10dp"
                 android:hint="Email"/>
@@ -124,6 +151,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/email"
                 android:inputType="textPassword"
+                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorTextIcons"
                 android:layout_marginTop="10dp"
                 android:hint="Contraseña"/>
             <EditText
@@ -133,6 +162,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/password"
                 android:inputType="textPassword"
+                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/whiteTransp"
                 android:layout_marginTop="10dp"
                 android:hint="Repetir contraseña"/>
             <TextView
@@ -140,7 +171,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:textColor="@color/colorTextIcons"
                 android:layout_below="@+id/password2"
+                android:textColorHint="@color/whiteTransp"
                 android:paddingLeft="10dp"
                 android:text="Vehiculos y propiedades"/>
             <View
@@ -148,8 +181,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_below="@+id/textInfoExtra"
-                android:background="@android:color/black"/>
+                android:background="@android:color/white"/>
             <TextView
                 android:id="@+id/vehicles"
                 android:layout_width="120dp"
@@ -157,8 +192,9 @@
                 android:layout_alignLeft="@+id/telefono"
                 android:layout_below="@+id/bar3"
                 android:layout_marginTop="20dp"
-                android:background="@color/colorPrimaryLight"
-                android:text="  Vehiculos"
+                android:text="Vehiculos:"
+                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/whiteTransp"
                 android:gravity="center|left"
                 android:textSize="18dp"/>
             <TextView
@@ -168,21 +204,21 @@
                 android:layout_toRightOf="@+id/vehicles"
                 android:layout_below="@+id/bar3"
                 android:layout_marginTop="20dp"
-                android:background="@color/colorPrimaryLight"
                 android:text="0"
+                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/whiteTransp"
                 android:gravity="center"
                 android:textSize="18dp"/>
-            <TextView
+
+            <android.support.design.widget.FloatingActionButton
                 android:id="@+id/addVehicle"
+                android:src="@drawable/ic_action_add"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_toRightOf="@+id/numVehicles"
+                android:layout_marginLeft="20dp"
                 android:layout_below="@+id/bar3"
-                android:layout_marginTop="20dp"
-                android:background="@color/colorPrimarySemiLight"
-                android:text="+"
-                android:gravity="center"
-                android:textSize="20dp"/>
+                android:layout_marginTop="20dp"/>
 
             <TextView
                 android:id="@+id/properties"
@@ -191,8 +227,9 @@
                 android:layout_alignLeft="@+id/telefono"
                 android:layout_below="@+id/vehicles"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrimaryLight"
-                android:text="  Propiedades"
+                android:textColor="@color/colorTextIcons"
+                android:text="Propiedades:"
+                android:textColorHint="@color/whiteTransp"
                 android:gravity="center|left"
                 android:textSize="18dp"/>
             <TextView
@@ -202,31 +239,42 @@
                 android:layout_toRightOf="@+id/properties"
                 android:layout_below="@+id/vehicles"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrimaryLight"
                 android:text="0"
+                android:textColor="@color/colorTextIcons"
                 android:gravity="center"
                 android:textSize="18dp"/>
-            <TextView
+
+            <android.support.design.widget.FloatingActionButton
                 android:id="@+id/addPropertie"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_toRightOf="@+id/numProperties"
                 android:layout_below="@+id/vehicles"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrimarySemiLight"
-                android:text="+"
-                android:gravity="center"
-                android:textSize="20dp"/>
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_action_add"/>
 
-            <Button
+            <mehdi.sakout.fancybuttons.FancyButton
                 android:id="@+id/aceptSignUp"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/properties"
-                android:layout_marginTop="10dp"
-                android:text="Aceptar"
-                android:backgroundTint="@color/colorPrimary"/>
+                android:layout_marginTop="30dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:layout_above="@+id/registro"
+                android:layout_marginBottom="30dp"
+                fancy:fb_borderColor="#FFFFFF"
+                fancy:fb_borderWidth="2dp"
+                fancy:fb_defaultColor="@color/colorPrimary"
+                fancy:fb_focusColor="#9bd823"
+                fancy:fb_radius="30dp"
+                fancy:fb_text="ACEPTAR"
+                fancy:fb_textColor="#FFFFFF" />
+
 
         </RelativeLayout>
 

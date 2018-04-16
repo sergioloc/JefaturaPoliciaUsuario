@@ -11,5 +11,7 @@
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorTextIcons">#FFFFFF</color>
 
+    <color name="whiteTransp">#c8ffffff</color>
+
     <color name="colorSOS">#fc3b3b</color>
 </resources>
