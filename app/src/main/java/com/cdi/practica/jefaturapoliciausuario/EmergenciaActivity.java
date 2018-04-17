@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
 
-public class Emergencia extends AppCompatActivity {
+public class EmergenciaActivity extends AppCompatActivity {
 
     TextView tiempo;
     private static final String FORMAT = "%02d:%02d";

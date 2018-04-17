@@ -73,7 +73,7 @@ public class Registro extends AppCompatActivity {
         data = getIntent().getExtras().getBoolean("data");
         // Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        usersRef = database.getReference("users");
+        usersRef = database.getReference("usuarios");
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
