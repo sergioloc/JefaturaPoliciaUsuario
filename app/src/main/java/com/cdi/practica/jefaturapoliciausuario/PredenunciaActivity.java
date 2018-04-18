@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Date;
+
 public class PredenunciaActivity extends AppCompatActivity {
 
     private EditText nombre,apellidos,ubi,dni;
@@ -66,13 +68,30 @@ public class PredenunciaActivity extends AppCompatActivity {
                 apellidosS = apellidos.getText().toString();
                 ubiS = ubi.getText().toString();
                 dniS = dni.getText().toString();
-                Predenuncia p = new Predenuncia(tipoS,nombreS,apellidosS,dniS,ubiS);
+                Predenuncia p = new Predenuncia(tipoS,nombreS,apellidosS,dniS,ubiS,getHora());
                 predRef.child("pendientes").push().setValue(p);
                 startActivity(new Intent(PredenunciaActivity.this, MainMenu.class));
                 Toast.makeText(getApplicationContext(),"Tu predenuncia ha sido notificada",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
+    }
+
+    private String getHora(){
+        long msTime = System.currentTimeMillis();
+        Date curDateTime = new Date(msTime);
+        String hora, minutos,resultado;
+        if(curDateTime.getHours()<10)
+            hora="0"+curDateTime.getHours();
+        else
+            hora=""+curDateTime.getHours();
+
+        if(curDateTime.getMinutes()<10)
+            minutos="0"+curDateTime.getMinutes();
+        else
+            minutos=""+curDateTime.getMinutes();
+        resultado = hora+":"+minutos;
+        return resultado;
     }
 
 }
