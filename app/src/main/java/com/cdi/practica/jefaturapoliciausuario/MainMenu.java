@@ -45,7 +45,7 @@ public class MainMenu extends AppCompatActivity {
         // Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        refEmg = database.getReference("emergencias");
+        refEmg = database.getReference("emergencias").child("pendientes");
         // Ubicaciones
         final String ubi[] = {"c/ azul 11","c/ verde 12","c/ amarillo 13","c/ morado 24","c/ rojo 19",
                 "c/ violeta 21","c/ magenta 7","c/ cian 3","c/ rosa 6","c/ blanco 10","c/ negro 2",

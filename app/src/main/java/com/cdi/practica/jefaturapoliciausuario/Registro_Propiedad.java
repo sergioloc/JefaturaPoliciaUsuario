@@ -45,7 +45,7 @@ public class Registro_Propiedad extends AppCompatActivity {
         aceptButton = (Button) findViewById(R.id.aceptarPropiedad);
         // Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        usersRef = database.getReference("users");
+        usersRef = database.getReference("usuarios");
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -88,7 +88,7 @@ public class Registro_Propiedad extends AppCompatActivity {
     /**Meter datos en la BBDD**/
     private void addPropertieDB(){
         Propiedad p = new Propiedad(typeS,addressS);
-        usersRef.child(user.getUid()).child("properties").child(typeS).setValue(p);
+        usersRef.child(user.getUid()).child("propiedades").child(typeS).setValue(p);
     }
 
     @Override

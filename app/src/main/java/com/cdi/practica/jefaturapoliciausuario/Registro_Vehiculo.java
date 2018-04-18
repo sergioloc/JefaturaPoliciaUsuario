@@ -49,7 +49,7 @@ public class Registro_Vehiculo extends AppCompatActivity {
         tipo.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, letra));
         // Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        usersRef = database.getReference("users");
+        usersRef = database.getReference("usuarios");
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -97,7 +97,7 @@ public class Registro_Vehiculo extends AppCompatActivity {
     /**Meter datos en la BBDD**/
     private void addVehicleDB(){
         Vehiculo v = new Vehiculo(tipoS,matriculaS,modeloS,seguroS,itvS);
-        usersRef.child(user.getUid()).child("vehicles").child(matriculaS).setValue(v);
+        usersRef.child(user.getUid()).child("vehiculos").child(matriculaS).setValue(v);
     }
 
     @Override

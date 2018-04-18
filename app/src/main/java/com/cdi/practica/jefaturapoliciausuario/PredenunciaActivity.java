@@ -67,9 +67,9 @@ public class PredenunciaActivity extends AppCompatActivity {
                 ubiS = ubi.getText().toString();
                 dniS = dni.getText().toString();
                 Predenuncia p = new Predenuncia(tipoS,nombreS,apellidosS,dniS,ubiS);
-                predRef.child("nueva").push().setValue(p);
+                predRef.child("pendientes").push().setValue(p);
                 startActivity(new Intent(PredenunciaActivity.this, MainMenu.class));
-                Toast.makeText(getApplicationContext(),"Tu denuncia ha sido notificada",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Tu predenuncia ha sido notificada",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
