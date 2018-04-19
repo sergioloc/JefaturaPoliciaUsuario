@@ -52,7 +52,7 @@ public class PredenunciaActivity extends AppCompatActivity {
         String[] hechos = { "Hurto", "Robo", "Robo con violencia", "Agresión",
                             "Abuso", "Fraude", "Estafa", "Homicidio", "Difamación",
                             "Injuria", "Lesiones", "Acoso", "Amenazas" };
-        tipo.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, hechos));
+        tipo.setAdapter(new ArrayAdapter<String>(this, R.layout.my_spinner_item, hechos));
         // Button
         aceptar = (Button) findViewById(R.id.aceptarPredenuncia);
         FirebaseDatabase database = FirebaseDatabase.getInstance();

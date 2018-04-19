@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.cdi.practica.jefaturapoliciausuario.R;
 import com.ramotion.foldingcell.FoldingCell;
 
-public class gestion_ajenas extends Fragment {
+public class GestionRecibidas extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

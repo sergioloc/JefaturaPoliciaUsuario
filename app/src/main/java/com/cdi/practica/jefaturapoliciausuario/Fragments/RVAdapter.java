@@ -1,5 +1,7 @@
 package com.cdi.practica.jefaturapoliciausuario.Fragments;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +14,8 @@ import com.cdi.practica.jefaturapoliciausuario.R;
 import java.util.List;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
+
+    private Context context;
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
@@ -26,9 +30,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
         }
     }
 
-    List<Person> persons;
+    List<Denuncia> persons;
 
-    RVAdapter(List<Person> persons){
+    RVAdapter(List<Denuncia> persons){
         this.persons = persons;
     }
 
@@ -48,6 +52,18 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
         personViewHolder.personName.setText(persons.get(i).name);
         personViewHolder.personAge.setText(persons.get(i).age);
+        context = personViewHolder.personAge.getContext();
+        personViewHolder.cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.activity_add_document);
+                // aqui
+
+
+                dialog.show();
+            }
+        });
     }
 
     @Override

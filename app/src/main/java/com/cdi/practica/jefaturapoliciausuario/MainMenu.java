@@ -108,7 +108,7 @@ public class MainMenu extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainMenu.this);
         builder.setTitle(R.string.app_name);
         builder.setIcon(R.mipmap.ic_launcher);
-        builder.setMessage("Seguro que quiere salir?")
+        builder.setMessage("¿Seguro que quiere salir?")
                 .setCancelable(false)
                 .setPositiveButton("ACEPTAR", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

@@ -23,18 +23,11 @@
             android:label="Registro"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Registro_Vehiculo"
-            android:label="Registrar Vehiculo"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Registro_Propiedad"
-            android:label="Registrar Propiedad"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".MainMenu"
             android:screenOrientation="portrait" />
         <activity
             android:name=".PredenunciaActivity"
+            android:label="Predenuncia"
             android:screenOrientation="portrait" />
         <activity
             android:name=".GestionActivity"

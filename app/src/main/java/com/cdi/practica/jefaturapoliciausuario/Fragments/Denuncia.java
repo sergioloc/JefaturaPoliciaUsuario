@@ -3,11 +3,11 @@ package com.cdi.practica.jefaturapoliciausuario.Fragments;
 import java.util.ArrayList;
 import java.util.List;
 
-class Person {
+class Denuncia {
     String name;
     String age;
 
-    Person(String name, String age) {
+    Denuncia(String name, String age) {
         this.name = name;
         this.age = age;
     }

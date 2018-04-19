@@ -1,8 +1,6 @@
 package com.cdi.practica.jefaturapoliciausuario;
 
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -13,10 +11,9 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.cdi.practica.jefaturapoliciausuario.Fragments.gestion_ajenas;
-import com.cdi.practica.jefaturapoliciausuario.Fragments.gestion_propias;
+import com.cdi.practica.jefaturapoliciausuario.Fragments.GestionRecibidas;
+import com.cdi.practica.jefaturapoliciausuario.Fragments.GestionEnviadas;
 
 public class GestionActivity extends AppCompatActivity {
 
@@ -92,10 +89,10 @@ public class GestionActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    gestion_propias g1 = new gestion_propias();
+                    GestionEnviadas g1 = new GestionEnviadas();
                     return g1;
                 case 1:
-                    gestion_ajenas g2 = new gestion_ajenas();
+                    GestionRecibidas g2 = new GestionRecibidas();
                     return g2;
                 default:
                     return null;

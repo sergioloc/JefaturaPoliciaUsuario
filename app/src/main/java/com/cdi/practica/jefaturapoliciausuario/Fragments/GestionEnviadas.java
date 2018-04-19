@@ -7,7 +7,6 @@ package com.cdi.practica.jefaturapoliciausuario.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,10 +21,10 @@ import com.cdi.practica.jefaturapoliciausuario.addDocument;
 import java.util.ArrayList;
 import java.util.List;
 
-public class gestion_propias extends Fragment{
+public class GestionEnviadas extends Fragment{
 
 
-    private List<Person> persons;
+    private List<Denuncia> persons;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,8 +54,8 @@ public class gestion_propias extends Fragment{
 
     private void initializeData(){
         persons = new ArrayList<>();
-        persons.add(new Person("Robo con violencia", "Pulsa para más información"));
-        persons.add(new Person("Fraude", "Pulsa para más información"));
-        persons.add(new Person("Acoso", "Pulsa para más información"));
+        persons.add(new Denuncia("Robo con violencia", "Pulsa para más información"));
+        persons.add(new Denuncia("Fraude", "Pulsa para más información"));
+        persons.add(new Denuncia("Acoso", "Pulsa para más información"));
     }
 }
