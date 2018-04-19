@@ -4,20 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cdi.practica.jefaturapoliciausuario.EmergenciaActivity">
+    tools:context="com.cdi.practica.jefaturapoliciausuario.EmergenciaActivity"
+    android:background="@drawable/wallpaper5">
 
+    <ImageView
+        android:id="@+id/imgAlerta"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_alert"/>
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:textColor="@color/colorSOS"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:text="ALERTA ENVIADA"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"/>
+        android:text="EMERGENCIA ENVIADA"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/imgAlerta"/>
 
     <TextView
         android:id="@+id/des"
@@ -25,19 +32,30 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:textColor="@color/colorSOS"
         android:textSize="20dp"
-        android:text="No se mueva de su ubicación\n una patrulla está en camino"/>
+        android:text="No se mueva de su ubicación,\n una patrulla está en camino"/>
+
+    <TextView
+        android:id="@+id/des2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/des"
+        android:layout_marginTop="60dp"
+        android:textSize="17dp"
+        android:text="Llegada aproximada:"/>
 
     <TextView
         android:id="@+id/tiempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/des"
+        android:layout_below="@+id/des2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:textSize="40dp"
         android:text="00:00"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
 
 </RelativeLayout>

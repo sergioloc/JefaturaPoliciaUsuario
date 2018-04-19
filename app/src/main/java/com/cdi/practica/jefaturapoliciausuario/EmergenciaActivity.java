@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
 
+
 public class EmergenciaActivity extends AppCompatActivity {
 
     TextView tiempo;
@@ -19,7 +20,20 @@ public class EmergenciaActivity extends AppCompatActivity {
 
         tiempo=(TextView)findViewById(R.id.tiempo);
 
-        new CountDownTimer(340000, 1000) { // adjust the milli seconds here
+        int t=0;
+        int n = getNumeroAleatorio();
+        if(n==0)
+            t=350000;
+        else if(n==1)
+            t=400000;
+        else if(n==2)
+            t=450000;
+        else if(n==3)
+            t=500000;
+        else
+            t=550000;
+
+        new CountDownTimer(t, 1000) { // adjust the milli seconds here
 
             public void onTick(long millisUntilFinished) {
 
@@ -35,4 +49,11 @@ public class EmergenciaActivity extends AppCompatActivity {
             }
         }.start();
     }
+
+    private int getNumeroAleatorio(){
+        int numero = (int) (Math.random() * 5);
+        return numero;
+    }
+
+
 }

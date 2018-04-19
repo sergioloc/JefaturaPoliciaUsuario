@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/fondo_menu"
+    android:background="@drawable/wallpaper3"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,8 +10,8 @@
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/predenuncia"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -22,15 +22,15 @@
         fancy:fb_borderColor="#FFFFFF"
         fancy:fb_borderWidth="2dp"
         fancy:fb_defaultColor="#7ab9"
-        fancy:fb_focusColor="#9bd823"
+        fancy:fb_focusColor="@color/colorPrimary"
         fancy:fb_radius="30dp"
         fancy:fb_text="PREDENUNCIA"
-        fancy:fb_textColor="#FFFFFF" />
+        fancy:fb_textColor="#FFFFFF"/>
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/gestion"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -40,15 +40,15 @@
         fancy:fb_borderColor="#FFFFFF"
         fancy:fb_borderWidth="2dp"
         fancy:fb_defaultColor="#7ab9"
-        fancy:fb_focusColor="#9bd823"
+        fancy:fb_focusColor="@color/colorPrimary"
         fancy:fb_radius="30dp"
         fancy:fb_text="GESTIÓN"
         fancy:fb_textColor="#FFFFFF" />
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/emergencia"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -59,7 +59,7 @@
         fancy:fb_borderColor="#FFFFFF"
         fancy:fb_borderWidth="2dp"
         fancy:fb_defaultColor="#7ab9"
-        fancy:fb_focusColor="#9bd823"
+        fancy:fb_focusColor="@color/colorPrimary"
         fancy:fb_radius="30dp"
         fancy:fb_text="EMERGENCIA"
         fancy:fb_textColor="#FFFFFF" />
