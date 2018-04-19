@@ -1,57 +1,72 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <com.ramotion.foldingcell.FoldingCell
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/folding_cell"
-        android:clipChildren="false"
-        android:clipToPadding="false"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        ​
-        <FrameLayout
-            android:id="@+id/cell_content_view"
-            android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+    />
 
-            android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
-            android:visibility="gone">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="250dp" />
-            <Button
-                android:id="@+id/addDoc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Añadir documentacion"
-                android:layout_gravity="bottom"
-                android:backgroundTint="@color/colorSecondaryText"
-                android:textColor="@color/colorPrimaryText"/>
+</LinearLayout>
 
-        </FrameLayout>
-        ​
-        <FrameLayout
-            android:id="@+id/cell_title_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@android:color/holo_blue_dark" />
-        </FrameLayout>
-        ​
-    </com.ramotion.foldingcell.FoldingCell>
 
-</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

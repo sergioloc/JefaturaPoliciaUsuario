@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addDocument">
+
+    <RelativeLayout
+        android:id="@+id/rl2"
+        android:layout_width="match_parent"
+        android:background="#d0d1d5"
+        android:layout_height="280dp">
+
+        <Button
+            android:id="@+id/añadirFot"
+            android:background="@color/colorAccent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:backgroundTint="#ebebeb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="  Añadir imagen  "/>
+
+        <ImageView
+            android:id="@+id/imgview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
+
+
+
+    
+    <EditText
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:minLines="6"
+        android:gravity="top|left"
+        android:maxLines="10"
+        android:background="#e1e6e8"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:layout_below="@id/rl2"
+    />
+
+    <Button
+        android:id="@+id/añadirDoc"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:text="Añadir documentación"/>
+
+</RelativeLayout>
