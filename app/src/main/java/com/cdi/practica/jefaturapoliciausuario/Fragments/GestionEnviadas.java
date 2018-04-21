@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.cdi.practica.jefaturapoliciausuario.Objects.Denuncia;
 import com.cdi.practica.jefaturapoliciausuario.R;
 import com.cdi.practica.jefaturapoliciausuario.addDocument;
 
@@ -39,12 +40,11 @@ public class GestionEnviadas extends Fragment{
         RVAdapter adapter = new RVAdapter(persons);
         rv.setAdapter(adapter);
 
-        ImageView cv = (ImageView) rootView.findViewById(R.id.link);
+        ImageView cv = (ImageView) rootView.findViewById(R.id.cv);
         rv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), addDocument.class));
-                Toast.makeText(getActivity().getApplicationContext(),"Información añadida",Toast.LENGTH_SHORT).show();
             }
         });
 

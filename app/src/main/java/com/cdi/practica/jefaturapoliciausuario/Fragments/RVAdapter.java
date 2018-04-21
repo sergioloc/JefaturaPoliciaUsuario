@@ -2,14 +2,18 @@ package com.cdi.practica.jefaturapoliciausuario.Fragments;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cdi.practica.jefaturapoliciausuario.Objects.Denuncia;
 import com.cdi.practica.jefaturapoliciausuario.R;
+import com.cdi.practica.jefaturapoliciausuario.addDocument;
 
 import java.util.List;
 
@@ -18,13 +22,13 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
     private Context context;
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
-        CardView cv;
+        ImageView iv;
         TextView personName;
         TextView personAge;
 
         PersonViewHolder(View itemView) {
             super(itemView);
-            cv = (CardView)itemView.findViewById(R.id.cv);
+            iv = (ImageView) itemView.findViewById(R.id.cv);
             personName = (TextView)itemView.findViewById(R.id.person_name);
             personAge = (TextView)itemView.findViewById(R.id.person_age);
         }
@@ -50,18 +54,19 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
 
     @Override
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
-        personViewHolder.personName.setText(persons.get(i).name);
-        personViewHolder.personAge.setText(persons.get(i).age);
+        personViewHolder.personName.setText(persons.get(i).fecha);
+        personViewHolder.personAge.setText(persons.get(i).tipo);
         context = personViewHolder.personAge.getContext();
-        personViewHolder.cv.setOnClickListener(new View.OnClickListener() {
+        personViewHolder.iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog = new Dialog(context);
+                /*Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.activity_add_document);
                 // aqui
 
 
-                dialog.show();
+                dialog.show();*/
+                context.startActivity(new Intent(context,addDocument.class));
             }
         });
     }

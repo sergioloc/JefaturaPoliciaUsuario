@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/edtxt"
+        android:gravity="left"
+        android:hint="Escribe aquí la información..."/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACEPTAR"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/edtxt"
+        android:id="@+id/acdoc"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
