@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_registro_bis"
+    android:background="@drawable/fondo3azuljpg"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     tools:context="com.cdi.practica.jefaturapoliciausuario.Registro">
 
