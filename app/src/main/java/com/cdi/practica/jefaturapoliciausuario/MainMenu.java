@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.cdi.practica.jefaturapoliciausuario.Objects.Emergencia;
 import com.google.firebase.auth.FirebaseAuth;
@@ -140,6 +141,9 @@ public class MainMenu extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
+            case R.id.about:
+                Toast.makeText(getApplicationContext(), "App creada por:\nSergio López\nCarlos Tarancón\nJoaquín Capel\nJavier Sangil",Toast.LENGTH_LONG).show();
+                break;
             case R.id.signOut:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MainMenu.this,MainActivity.class));

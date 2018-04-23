@@ -269,7 +269,6 @@ public class Registro extends AppCompatActivity {
 
     /**Meter datos en la BBDD**/
     private void addInfoDB() {
-        Toast.makeText(getApplicationContext(),"Añadir a BBDD",Toast.LENGTH_SHORT).show();
         Usuario u = new Usuario(nombreS,apellidosS,dniS,sexoS,telefonoS,emailS,nacimientoS,nacionalidadS,domicilioS);
         usersRef.child(user.getUid()).child("info").setValue(u);
 

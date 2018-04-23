@@ -55,6 +55,7 @@
         android:textSize="40dp"
         android:text="00:00"
         android:textStyle="bold"
+        android:textColor="@color/colorPrimaryText"
         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 

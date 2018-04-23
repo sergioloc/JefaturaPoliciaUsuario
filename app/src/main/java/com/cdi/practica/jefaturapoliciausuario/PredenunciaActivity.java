@@ -68,11 +68,15 @@ public class PredenunciaActivity extends AppCompatActivity {
                 apellidosS = apellidos.getText().toString();
                 ubiS = ubi.getText().toString();
                 dniS = dni.getText().toString();
-                Predenuncia p = new Predenuncia(tipoS,nombreS,apellidosS,ubiS,dniS,getHora());
-                predRef.child("pendientes").push().setValue(p);
-                startActivity(new Intent(PredenunciaActivity.this, MainMenu.class));
-                Toast.makeText(getApplicationContext(),"Tu predenuncia ha sido notificada",Toast.LENGTH_SHORT).show();
-                finish();
+                if(tipoS.equals("")||nombreS.equals("")||apellidosS.equals("")||ubiS.equals("")||dniS.equals("")){
+                    Toast.makeText(getApplicationContext(),"Debes rellenar todos los campos",Toast.LENGTH_SHORT).show();
+                }else{
+                    Predenuncia p = new Predenuncia(tipoS,nombreS,apellidosS,ubiS,dniS,getHora());
+                    predRef.child("pendientes").push().setValue(p);
+                    startActivity(new Intent(PredenunciaActivity.this, MainMenu.class));
+                    Toast.makeText(getApplicationContext(),"Tu predenuncia ha sido notificada",Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         });
     }
