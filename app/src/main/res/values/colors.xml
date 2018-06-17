@@ -12,6 +12,9 @@
     <color name="colorTextIcons">#FFFFFF</color>
 
     <color name="whiteTransp">#c8ffffff</color>
+    <color name="gris">#a4a4a4</color>
+    <color name="black">#000000</color>
 
     <color name="colorSOS">#fc3b3b</color>
+    <color name="red">#defc3b3b</color>
 </resources>

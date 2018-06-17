@@ -34,16 +34,15 @@ public class Registro extends AppCompatActivity {
 
     private EditText nombre,apellidos,dni,telefono,nacimiento,nacionalidad,domicilio,email,pass,pass2;
     private String nombreS,apellidosS,dniS,sexoS,telefonoS,nacimientoS,nacionalidadS,domicilioS,emailS,passS,pass2S;
-    private TextView numVehicles, numProperties;
+    private TextView numVehicles, numProperties, mensajeError;
     private FancyButton buttonSignUp;
     private Spinner sexo, tipoV, tipoP;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference usersRef;
     private FirebaseUser user;
-    private Boolean data;
     private FloatingActionButton addVehicle, addPropertie;
     private EditText matricula, modelo, seguro, itv, direccion;
-    private Button aceptarVehiculo, cancelarVehiculo, aceptarPropiedad, cancelarPropiedad;
+    private Button aceptarVehiculo,cancelarVehiculo,aceptarPropiedad,cancelarPropiedad,aceptarError;
     private ArrayList<Vehiculo> listVehiculos;
     private ArrayList<Propiedad> listPropiedades;
     private boolean avanzar;
@@ -58,33 +57,33 @@ public class Registro extends AppCompatActivity {
 
     /**Inicializacion de variables**/
     private void init() {
+        // ArrayList
         listVehiculos = new ArrayList();
         listPropiedades = new ArrayList();
         avanzar=false;
         // EditText
-        nombre = (EditText) findViewById(R.id.nombre);
-        apellidos = (EditText) findViewById(R.id.apellidos);
-        dni = (EditText) findViewById(R.id.dni);
-        telefono = (EditText) findViewById(R.id.telefono);
-        nacimiento = (EditText) findViewById(R.id.nacimiento);
-        nacionalidad = (EditText) findViewById(R.id.nacionalidad);
-        domicilio = (EditText) findViewById(R.id.domicilio);
-        email = (EditText) findViewById(R.id.email);
-        pass = (EditText) findViewById(R.id.password);
-        pass2 = (EditText) findViewById(R.id.password2);
+        nombre = findViewById(R.id.nombre);
+        apellidos = findViewById(R.id.apellidos);
+        dni = findViewById(R.id.dni);
+        telefono = findViewById(R.id.telefono);
+        nacimiento = findViewById(R.id.nacimiento);
+        nacionalidad = findViewById(R.id.nacionalidad);
+        domicilio = findViewById(R.id.domicilio);
+        email = findViewById(R.id.email);
+        pass = findViewById(R.id.password);
+        pass2 = findViewById(R.id.password2);
         //Spinner
-        sexo = (Spinner) findViewById(R.id.sexo);
-        String[] string_sexo = { "Masculino", "Femenino"};
-        sexo.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, string_sexo));
+        sexo = findViewById(R.id.sexo);
+        String[] string_sexo = {"Sexo","Masculino","Femenino"};
+        sexo.setAdapter(new ArrayAdapter<String>(this, R.layout.my_spinner_item, string_sexo));
         // TextView
-        addVehicle = (FloatingActionButton) findViewById(R.id.addVehicle);
-        addPropertie = (FloatingActionButton) findViewById(R.id.addPropertie);
-        numVehicles = (TextView) findViewById(R.id.numVehicles);
-        numProperties = (TextView) findViewById(R.id.numProperties);
+        numVehicles = findViewById(R.id.numVehicles);
+        numProperties = findViewById(R.id.numProperties);
+        // FloatingActionButton
+        addVehicle = findViewById(R.id.addVehicle);
+        addPropertie = findViewById(R.id.addPropertie);
         // Button
-        buttonSignUp = (FancyButton) findViewById(R.id.aceptSignUp);
-        //Boolean
-        data = getIntent().getExtras().getBoolean("data");
+        buttonSignUp = findViewById(R.id.aceptSignUp);
         // Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         usersRef = database.getReference("usuarios");
@@ -100,10 +99,6 @@ public class Registro extends AppCompatActivity {
                 }
             }
         };
-
-        // Si se regresa de registro de vehiculo o propiedad reescribe los datos en los EditText
-        if(data) getInfo();
-
 
     }
 
@@ -142,20 +137,39 @@ public class Registro extends AppCompatActivity {
         passS = pass.getText().toString();
         pass2S = pass2.getText().toString();
 
-        /*if(!nombreS.equals("") && !apellidosS.equals("") && !dniS.equals("") && !sexoS.equals("")
-                && !telefonoS.equals("") && !emailS.equals("") && !nacimientoS.equals("")
-                && !nacionalidadS.equals("") && !domicilioS.equals("") && !passS.equals("")
-                && !pass2S.equals("")){*/
+        if(nombreS.equals("")){
+            error("Debes introducir tu nombre");
+            nombre.setHintTextColor(getResources().getColor(R.color.red));
+        }else if(apellidosS.equals("")){
+            error("Debes introducir tus apellidos");
+            apellidos.setHintTextColor(getResources().getColor(R.color.red));
+        }else if(dniS.equals("")){
+            error("Debes introducir tu DNI");
+            dni.setHintTextColor(getResources().getColor(R.color.red));
+        }else if(sexoS.equals("Sexo")){
+            error("Debes seleccionar un sexo");
+        }else if(telefonoS.equals("")){
+            error("Debes introducir tu telefono");
+            telefono.setHintTextColor(getResources().getColor(R.color.red));
+        }else if(domicilioS.equals("")){
+            error("Debes introducir tu domicilio");
+            domicilio.setHintTextColor(getResources().getColor(R.color.red));
+        }else if(emailS.equals("")){
+            error("Debes introducir tu email");
+            email.setHintTextColor(getResources().getColor(R.color.red));
+        }else if(passS.equals("") || passS.length()<6){
+            error("Debes introducir una contraseña de al menos 6 caracteres");
+            pass.setHintTextColor(getResources().getColor(R.color.red));
+        }else if(pass2S.equals("")){
+            error("Debes repetir la contraseña introduida");
+            pass2.setHintTextColor(getResources().getColor(R.color.red));
+        }else if(passS.equals(pass2S)){
+            error("La contraseña no coincide");
+            pass2.setHintTextColor(getResources().getColor(R.color.red));
+        }else{
+            terminos();
+        }
 
-            if(passS.equals(pass2S)){
-                if(pass.length()>=6){
-                    terminos();
-                }else
-                    Toast.makeText(getApplicationContext(),"La contraseña debe tener al menos 6 caracteres",Toast.LENGTH_SHORT).show();
-            }else
-                Toast.makeText(getApplicationContext(),"La contraseña no coincide",Toast.LENGTH_SHORT).show();
-       /* }else
-            Toast.makeText(getApplicationContext(),"Debes rellenar todos los campos",Toast.LENGTH_SHORT).show();*/
     }
     private void botonVehiculo(){
         final Dialog dialog = new Dialog(this);
@@ -168,7 +182,7 @@ public class Registro extends AppCompatActivity {
         aceptarVehiculo = (Button) dialog.findViewById(R.id.aceptarVehiculo);
         cancelarVehiculo = (Button) dialog.findViewById(R.id.cancelarVehiculo);
         tipoV = (Spinner) dialog.findViewById(R.id.tipo);
-        String[] letra = {"Turismo","Moto","Camión","Furgoneta"};
+        String[] letra = {"Desplegar lista","Turismo","Moto","Camión","Furgoneta"};
         tipoV.setAdapter(new ArrayAdapter<String>(this, R.layout.my_spinner_item, letra));
 
         cancelarVehiculo.setOnClickListener(new View.OnClickListener() {
@@ -181,20 +195,28 @@ public class Registro extends AppCompatActivity {
         aceptarVehiculo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(matricula.getText().toString().equals("")||modelo.getText().toString().equals("")||seguro.getText().toString().equals("")||itv.getText().toString().equals("")){
-                    Toast.makeText(getApplicationContext(), "Debes rellenar todos los campos", Toast.LENGTH_SHORT).show();
+                if(tipoV.getSelectedItem().toString().equals("Desplegar lista")){
+                    toast("Debes seleccionar el tipo de vehiculo");
+                }else if(matricula.getText().toString().equals("")||modelo.getText().toString().equals("")||seguro.getText().toString().equals("")||itv.getText().toString().equals("")){
+                    toast("Debes rellenar todos los campos");
+                    if(matricula.getText().toString().equals(""))
+                        matricula.setHintTextColor(getResources().getColor(R.color.red));
+                    if(modelo.getText().toString().equals(""))
+                        modelo.setHintTextColor(getResources().getColor(R.color.red));
+                    if(seguro.getText().toString().equals(""))
+                        seguro.setHintTextColor(getResources().getColor(R.color.red));
+                    if(itv.getText().toString().equals(""))
+                        itv.setHintTextColor(getResources().getColor(R.color.red));
                 }else{
                     listVehiculos.add(new Vehiculo(tipoV.getSelectedItem().toString(),
                             matricula.getText().toString(),modelo.getText().toString(),
                             seguro.getText().toString(),itv.getText().toString()));
-                    Toast.makeText(getApplicationContext(), "Vehiculo añadido", Toast.LENGTH_SHORT).show();
+                    toast("Vehiculo añadido");
                     numVehicles.setText(String.valueOf(Integer.parseInt(numVehicles.getText().toString())+1));
                     dialog.dismiss();
                 }
-
             }
         });
-
         dialog.show();
     }
     private void botonPropiedad(){
@@ -205,7 +227,7 @@ public class Registro extends AppCompatActivity {
         aceptarPropiedad = (Button) dialog.findViewById(R.id.aceptarPropiedad);
         cancelarPropiedad = (Button) dialog.findViewById(R.id.cancelarPropiedad);
         tipoP = (Spinner) dialog.findViewById(R.id.tipo);
-        String[] letra = {"Casa","Comercio","Finca"};
+        String[] letra = {"Desplegar lista","Casa","Comercio","Finca"};
         tipoP.setAdapter(new ArrayAdapter<String>(this, R.layout.my_spinner_item, letra));
 
         cancelarPropiedad.setOnClickListener(new View.OnClickListener() {
@@ -218,17 +240,19 @@ public class Registro extends AppCompatActivity {
         aceptarPropiedad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(direccion.getText().toString().equals("")){
-                    Toast.makeText(getApplicationContext(), "Debes rellenar todos los campos", Toast.LENGTH_SHORT).show();
+                if(tipoP.getSelectedItem().toString().equals("Deplegar lista")){
+                    toast("Debes seleccionar el tipo de propiedad");
+                }else if(direccion.getText().toString().equals("")){
+                    toast("Debes indicar una dirección");
+                    direccion.setHintTextColor(getResources().getColor(R.color.red));
                 }else{
                     listPropiedades.add(new Propiedad(tipoP.getSelectedItem().toString(),direccion.getText().toString()));
                     numProperties.setText(String.valueOf(Integer.parseInt(numProperties.getText().toString())+1));
-                    Toast.makeText(getApplicationContext(), "Propiedad añadida", Toast.LENGTH_SHORT).show();
+                    toast("Propiedad añadida");
                     dialog.dismiss();
                 }
             }
         });
-
         dialog.show();
     }
     private void terminos(){
@@ -244,10 +268,25 @@ public class Registro extends AppCompatActivity {
                     signUp(emailS,passS);
                 }
                 else
-                    Toast.makeText(getApplicationContext(),"Debes aceptar los terminos y condiciones",Toast.LENGTH_SHORT).show();
+                    toast("Debes aceptar los términos y condiciones");
             }
         });
 
+        dialog.show();
+    }
+    private void error(String mensaje){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_registro_error);
+
+        aceptarError = (Button) dialog.findViewById(R.id.aceptarError);
+        mensajeError = dialog.findViewById(R.id.mensaje_error);
+        mensajeError.setText(mensaje);
+        aceptarError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
         dialog.show();
     }
 
@@ -282,24 +321,8 @@ public class Registro extends AppCompatActivity {
         }
     }
 
-    /**Recuperar info del usuario**/
-    private void getInfo() {
-        nombre.setText(getIntent().getExtras().getString("name"));
-        apellidos.setText(getIntent().getExtras().getString("last"));
-        dni.setText(getIntent().getExtras().getString("dni"));
-        if(sexoS.equals("Masculino"))
-            sexo.setSelection(1);
-        else
-            sexo.setSelection(2);
-        telefono.setText(getIntent().getExtras().getString("phone"));
-        email.setText(getIntent().getExtras().getString("email"));
-        nacimiento.setText(getIntent().getExtras().getString("nacimiento"));
-        nacionalidad.setText(getIntent().getExtras().getString("nacionalidad"));
-        domicilio.setText(getIntent().getExtras().getString("domicilio"));
-        pass.setText(getIntent().getExtras().getString("pass"));
-        pass2.setText(getIntent().getExtras().getString("pass"));
-        numVehicles.setText(getIntent().getExtras().getString("numV"));
-        numProperties.setText(getIntent().getExtras().getString("numP"));
+    private void toast(String texto){
+        Toast.makeText(getApplicationContext(),texto,Toast.LENGTH_LONG).show();
     }
 
     @Override

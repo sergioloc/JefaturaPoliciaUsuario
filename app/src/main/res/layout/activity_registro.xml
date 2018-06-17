@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo3azuljpg"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     tools:context="com.cdi.practica.jefaturapoliciausuario.Registro">
 
@@ -22,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
-                android:textColor="@color/colorTextIcons"
+                android:textColor="@color/colorPrimaryText"
                 android:text="Información personal"/>
 
             <View
@@ -33,7 +32,17 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_below="@+id/textInfoPers"
-                android:background="@android:color/white"/>
+                android:background="@android:color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/nombre"
+                android:text="*"
+                android:textSize="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@id/nombre"
+                android:layout_marginTop="10dp"/>
 
             <EditText
                 android:id="@+id/nombre"
@@ -42,9 +51,19 @@
                 android:layout_below="@id/bar1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:textColorHint="@color/whiteTransp"
-                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/colorPrimaryText"
                 android:hint="Nombre"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/apellidos"
+                android:text="*"
+                android:textSize="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@id/apellidos"
+                android:layout_marginTop="10dp"/>
 
             <EditText
                 android:id="@+id/apellidos"
@@ -53,9 +72,20 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/nombre"
                 android:layout_marginTop="10dp"
-                android:textColorHint="@color/whiteTransp"
-                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/colorPrimaryText"
                 android:hint="Apellidos"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/nombre"
+                android:text="*"
+                android:textSize="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@id/dni"
+                android:layout_marginTop="10dp"/>
+
             <EditText
                 android:id="@+id/dni"
                 android:layout_width="200dp"
@@ -63,68 +93,95 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/apellidos"
                 android:layout_marginTop="10dp"
-                android:textColorHint="@color/whiteTransp"
-                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/colorPrimaryText"
                 android:hint="DNI"/>
+
             <Spinner
                 android:id="@+id/sexo"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:textColorHint="@color/whiteTransp"
-                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/colorPrimaryText"
                 android:layout_below="@+id/dni" />
+
             <EditText
                 android:id="@+id/telefono"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/sexo"
-                android:textColorHint="@color/whiteTransp"
-                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/colorPrimaryText"
                 android:layout_marginTop="10dp"
                 android:hint="Telefono"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/nombre"
+                android:text="*"
+                android:textSize="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@id/telefono"
+                android:layout_marginTop="10dp"/>
+
             <EditText
                 android:id="@+id/nacimiento"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:textColorHint="@color/whiteTransp"
+                android:textColorHint="@color/gris"
                 android:layout_below="@+id/telefono"
-                android:textColor="@color/colorTextIcons"
+                android:textColor="@color/colorPrimaryText"
                 android:layout_marginTop="10dp"
                 android:hint="Fecha de nacimiento"/>
+
             <EditText
                 android:id="@+id/nacionalidad"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/nacimiento"
-                android:textColorHint="@color/whiteTransp"
-                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/colorPrimaryText"
                 android:layout_marginTop="10dp"
                 android:hint="Nacionalidad"/>
+
             <EditText
                 android:id="@+id/domicilio"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/nacionalidad"
-                android:textColorHint="@color/whiteTransp"
-                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/colorPrimaryText"
                 android:layout_marginTop="10dp"
                 android:hint="Domicilio"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/nombre"
+                android:text="*"
+                android:textSize="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@id/domicilio"
+                android:layout_marginTop="10dp"/>
+
             <TextView
                 android:id="@+id/textInfoAcc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_below="@+id/domicilio"
-                android:textColor="@color/colorTextIcons"
-                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorPrimaryText"
+                android:textColorHint="@color/gris"
                 android:paddingLeft="10dp"
                 android:text="Información de la cuenta"/>
+
             <View
                 android:id="@+id/bar2"
                 android:layout_width="fill_parent"
@@ -133,17 +190,39 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_below="@+id/textInfoAcc"
-                android:background="@android:color/white"/>
+                android:background="@android:color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/nombre"
+                android:text="*"
+                android:textSize="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@id/email"
+                android:layout_marginTop="10dp"/>
+
             <EditText
                 android:id="@+id/email"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:textColorHint="@color/whiteTransp"
-                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/colorPrimaryText"
                 android:layout_below="@+id/bar2"
                 android:layout_marginTop="10dp"
                 android:hint="Email"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/nombre"
+                android:text="*"
+                android:textSize="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@id/password"
+                android:layout_marginTop="10dp"/>
+
             <EditText
                 android:id="@+id/password"
                 android:layout_width="200dp"
@@ -151,10 +230,11 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/email"
                 android:inputType="textPassword"
-                android:textColorHint="@color/whiteTransp"
-                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/gris"
+                android:textColor="@color/colorPrimaryText"
                 android:layout_marginTop="10dp"
                 android:hint="Contraseña"/>
+
             <EditText
                 android:id="@+id/password2"
                 android:layout_width="200dp"
@@ -162,20 +242,32 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/password"
                 android:inputType="textPassword"
-                android:textColor="@color/colorTextIcons"
-                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorPrimaryText"
+                android:textColorHint="@color/gris"
                 android:layout_marginTop="10dp"
                 android:hint="Repetir contraseña"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/nombre"
+                android:text="*"
+                android:textSize="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignTop="@id/password2"
+                android:layout_marginTop="10dp"/>
+
             <TextView
                 android:id="@+id/textInfoExtra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textColor="@color/colorTextIcons"
+                android:textColor="@color/colorPrimaryText"
                 android:layout_below="@+id/password2"
-                android:textColorHint="@color/whiteTransp"
+                android:textColorHint="@color/gris"
                 android:paddingLeft="10dp"
                 android:text="Vehiculos y propiedades"/>
+
             <View
                 android:id="@+id/bar3"
                 android:layout_width="fill_parent"
@@ -184,7 +276,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_below="@+id/textInfoExtra"
-                android:background="@android:color/white"/>
+                android:background="@android:color/black"/>
+
             <TextView
                 android:id="@+id/vehicles"
                 android:layout_width="120dp"
@@ -193,10 +286,11 @@
                 android:layout_below="@+id/bar3"
                 android:layout_marginTop="20dp"
                 android:text="Vehiculos:"
-                android:textColor="@color/colorTextIcons"
-                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorPrimaryText"
+                android:textColorHint="@color/gris"
                 android:gravity="center|left"
                 android:textSize="18dp"/>
+
             <TextView
                 android:id="@+id/numVehicles"
                 android:layout_width="30dp"
@@ -205,8 +299,8 @@
                 android:layout_below="@+id/bar3"
                 android:layout_marginTop="20dp"
                 android:text="0"
-                android:textColor="@color/colorTextIcons"
-                android:textColorHint="@color/whiteTransp"
+                android:textColor="@color/colorPrimaryText"
+                android:textColorHint="@color/gris"
                 android:gravity="center"
                 android:textSize="18dp"/>
 
@@ -227,11 +321,12 @@
                 android:layout_alignLeft="@+id/telefono"
                 android:layout_below="@+id/vehicles"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/colorTextIcons"
+                android:textColor="@color/colorPrimaryText"
                 android:text="Propiedades:"
-                android:textColorHint="@color/whiteTransp"
+                android:textColorHint="@color/gris"
                 android:gravity="center|left"
                 android:textSize="18dp"/>
+
             <TextView
                 android:id="@+id/numProperties"
                 android:layout_width="30dp"
@@ -240,7 +335,7 @@
                 android:layout_below="@+id/vehicles"
                 android:layout_marginTop="10dp"
                 android:text="0"
-                android:textColor="@color/colorTextIcons"
+                android:textColor="@color/colorPrimaryText"
                 android:gravity="center"
                 android:textSize="18dp"/>
 
@@ -274,6 +369,16 @@
                 fancy:fb_radius="30dp"
                 fancy:fb_text="ACEPTAR"
                 fancy:fb_textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="* Campos obligatorios"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/aceptSignUp"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginBottom="10dp"/>
+
 
 
         </RelativeLayout>

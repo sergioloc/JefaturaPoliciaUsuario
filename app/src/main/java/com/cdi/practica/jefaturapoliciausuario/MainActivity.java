@@ -1,5 +1,6 @@
 package com.cdi.practica.jefaturapoliciausuario;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private FancyButton botonLogin;
     private EditText email, pass;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private Button aceptarError;
+    private TextView mensajeError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 String emailS = email.getText().toString();
                 String passS = pass.getText().toString();
                 if(emailS.equals("")||passS.equals(""))
-                    Toast.makeText(getApplicationContext(),"Debes rellenar ambos campos",Toast.LENGTH_SHORT).show();
+                    error("Debes rellenar ambos campos");
                 else
                     signIn(emailS,passS);
             }
@@ -89,10 +92,27 @@ public class MainActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(),"Sesion iniciada",Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getApplicationContext(),"No se ha podido iniciar sesion",Toast.LENGTH_SHORT).show();
+                    error("No se ha podido iniciar sesion.\nComprueba que el email y la contraseña son correctas.");
                 }
             }
         });
+    }
+
+    /**Funciones**/
+    private void error(String mensaje){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_registro_error);
+
+        aceptarError = (Button) dialog.findViewById(R.id.aceptarError);
+        mensajeError = dialog.findViewById(R.id.mensaje_error);
+        mensajeError.setText(mensaje);
+        aceptarError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     @Override
