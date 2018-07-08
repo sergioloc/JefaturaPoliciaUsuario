@@ -12,14 +12,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.cdi.practica.jefaturapoliciausuario.Objects.Denuncia;
 import com.cdi.practica.jefaturapoliciausuario.R;
-import com.cdi.practica.jefaturapoliciausuario.addDocument;
-import com.ramotion.foldingcell.FoldingCell;
+import com.cdi.practica.jefaturapoliciausuario.AddDocument;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +42,7 @@ public class GestionRecibidas extends Fragment {
         rv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), addDocument.class));
+                startActivity(new Intent(getActivity(), AddDocument.class));
             }
         });
 

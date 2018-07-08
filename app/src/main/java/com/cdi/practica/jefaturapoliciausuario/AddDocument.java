@@ -3,25 +3,16 @@ package com.cdi.practica.jefaturapoliciausuario;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-
-public class addDocument extends AppCompatActivity {
+public class AddDocument extends AppCompatActivity {
 
     Button bt1,bt2,bt3;
     ImageView iv1,iv2,iv3,iv11,iv22,iv33;
@@ -58,7 +49,7 @@ public class addDocument extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 bt2.setVisibility(View.INVISIBLE);
-                final Dialog dialog = new Dialog(addDocument.this);
+                final Dialog dialog = new Dialog(AddDocument.this);
                 dialog.setContentView(R.layout.anadir_info);
                 dialog.show();
 
@@ -106,7 +97,7 @@ public class addDocument extends AppCompatActivity {
         iv11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog1 = new Dialog(addDocument.this);
+                Dialog dialog1 = new Dialog(AddDocument.this);
                 dialog1.setContentView(R.layout.abrir_imagen);
                 dialog1.findViewById(R.id.imagen).setBackground(iv1.getDrawable());
                 dialog1.show();
@@ -116,7 +107,7 @@ public class addDocument extends AppCompatActivity {
         iv22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog1 = new Dialog(addDocument.this);
+                Dialog dialog1 = new Dialog(AddDocument.this);
                 dialog1.setContentView(R.layout.abrir_imagen);
                 dialog1.findViewById(R.id.imagen).setBackground(iv2.getDrawable());
                 dialog1.show();
@@ -126,7 +117,7 @@ public class addDocument extends AppCompatActivity {
         iv33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog1 = new Dialog(addDocument.this);
+                Dialog dialog1 = new Dialog(AddDocument.this);
                 dialog1.setContentView(R.layout.abrir_imagen);
                 dialog1.findViewById(R.id.imagen).setBackground(iv3.getDrawable());
                 dialog1.show();

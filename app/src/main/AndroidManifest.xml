@@ -38,7 +38,7 @@
         <activity
             android:name=".EmergenciaActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".addDocument"
+        <activity android:name=".AddDocument"
             android:screenOrientation="portrait"></activity>
         <uses-permission android:name="android.permission.CAMERA"> </uses-permission>
 

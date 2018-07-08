@@ -1,9 +1,7 @@
 package com.cdi.practica.jefaturapoliciausuario.Fragments;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +11,7 @@ import android.widget.TextView;
 
 import com.cdi.practica.jefaturapoliciausuario.Objects.Denuncia;
 import com.cdi.practica.jefaturapoliciausuario.R;
-import com.cdi.practica.jefaturapoliciausuario.addDocument;
+import com.cdi.practica.jefaturapoliciausuario.AddDocument;
 
 import java.util.List;
 
@@ -66,7 +64,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
 
 
                 dialog.show();*/
-                context.startActivity(new Intent(context,addDocument.class));
+                context.startActivity(new Intent(context,AddDocument.class));
             }
         });
     }
