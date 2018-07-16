@@ -163,7 +163,7 @@ public class Registro extends AppCompatActivity {
         }else if(pass2S.equals("")){
             error("Debes repetir la contraseña introduida");
             pass2.setHintTextColor(getResources().getColor(R.color.red));
-        }else if(passS.equals(pass2S)){
+        }else if(!passS.equals(pass2S)){
             error("La contraseña no coincide");
             pass2.setHintTextColor(getResources().getColor(R.color.red));
         }else{
